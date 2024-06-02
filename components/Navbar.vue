@@ -1,5 +1,5 @@
 <template>
-  <nav class="sticky top-0 w-full py-4 bg-white bg-opacity-80 z-50 backdrop-blur-md border-b">
+  <nav class="sticky top-0 w-full py-3 md:py-4 bg-white bg-opacity-80 z-50 backdrop-blur-md border-b">
     <div class="w-[90%] max-w-7xl mx-auto flex justify-between">
       <div class="flex items-center gap-x-4">
         <nuxt-link to="/">
@@ -9,7 +9,7 @@
       </div>
       <div class="flex justify-end items-center gap-x-4">
         <button type="button"
-          class="text-white text-md font-bold bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-full text-sm px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          class="text-white text-md font-bold bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-full text-sm px-4 py-2.5 md:py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
           Support
         </button>
         <div>

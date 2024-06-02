@@ -1,355 +1,376 @@
 <template>
-  <main class="flex flex-col p-2 min-h-screen dark:bg-neutral-900">
-    <div class="w-[90%] max-w-3xl flex flex-col mt-2 gap-6 mx-auto">
-      <div class="">
-        <img class="absolute inset-0 -z-50" src="../assets/images/Illustrator.svg" alt="Hero Image" width=2000
-          height=392 />
+  <!-- Page container -->
+  <main class="dark:bg-neutral-900 overflow-hidden px-4 ml-0 md:ml-[350px] xl:ml-[500px]">
+    <div class="w-full lg:w-[70%] max-w-7xl flex flex-col mt-2">
+      <div class="text-left -z-50">
+        <div>
+          <img class="absolute inset-0 -z-50" src="../assets/images/Illustrator.svg" alt="Hero Image" width=2000
+            height=392 />
+        </div>
+        <!-- Page header -->
+        <div class="flex items-center gap-x-4 my-5">
+          <img src="/assets/images/documentation_page.svg" alt="Documentation Logo" />
+          <span class="text-xl font-sans italic text-blue-500 tracking-wide">
+            Documentation
+          </span>
+        </div>
+
+        <!-- Main area -->
+        <article>
+          <!-- Mobile hamburger + breadcrumbs -->
+          <div class="flex md:hidden items-center gap-x-4 mt-6">
+            <!-- Hamburger button -->
+            <div>
+              <Icon
+                name="streamline:interface-setting-menu-1-button-parallel-horizontal-lines-menu-navigation-three-hamburger" />
+            </div>
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-x-1">
+              <span class="text-primaryDark font-extra-light">Documentation</span>
+              <Icon name="ic:baseline-keyboard-arrow-right" class="text-gray-500" />
+              <span class="font-semibold text-secondaryDark">Fundamentals</span>
+            </div>
+          </div>
+
+          <!-- Article content -->
+          <div>
+            <header class="mt-9">
+              <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primaryDark tracking-wide">
+                Basics &amp; Fundamentals
+              </h1>
+              <p class="text-lg text-secondaryDark">
+                This guide will give you everything you need to start using the Docs
+                Marketing API to manage audiences, control automation workflows, sync email activity with your
+                database, and more.
+              </p>
+            </header>
+
+            <div class="">
+
+              <!-- Article section -->
+              <div>
+                <h2 id="basics" data-scrollspy-target=""
+                  class="text-2xl md:text-4xl font-bold my-5 text-primaryDark tracking-wide">The basics</h2>
+                <p class="text-md text-secondaryDark">
+                  The Docs Marketing API provides programmatic access to Docs data and functionality, allowing
+                  developers to build custom features to do things like sync email activity and campaign analytics with
+                  their database, manage audiences and campaigns, and more.
+                </p>
+                <p class="text-md text-secondaryDark my-4">
+                  To use the Docs API, you need a Docs account. What you can do with the API depends on what level of
+                  Docs plan you have. Once you have an account and are logged in, you can get an API key and begin
+                  making calls to the API.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-lg md:text-4xl font-bold my-5 text-primaryDark tracking-wide">Using Docs</h3>
+                <p class="text-md text-secondaryDark">
+                  Whether you're managing your own campaigns, providing Docs services to your customers or clients, or
+                  writing a mobile app, the Docs Marketing API has features to manage and sync your contact data.
+                </p>
+                <p class="text-md text-secondaryDark my-4">
+                  You can also use the Docs API to handle data in different ways for different purposes. If you are
+                  syncing a large amount of data with Docs, you can use batches to avoid hitting the API request limits.
+                  For building integrations that let other users access data from their own <nuxt-link to="/"
+                    class="text-blue-600 font-semibold hover:underline">Docs accounts</nuxt-link>, you should
+                  <nuxt-link class="text-blue-600 font-semibold hover:underline cursor-pointer" to="#">authenticate with
+                    OAuth 2</nuxt-link>. And if you're developing an app for iOS or Android, the Mobile SDK provides
+                  an
+                  easy way
+                  to work with a mobile-focused subset of the Docs API's functionality.
+                </p>
+              </div>
+
+              <!-- Article section -->
+              <div>
+                <div>
+                  <!-- HTML Bookmark -->
+                  <!-- The data-scrollspy-target attribute makes the scrollspy work -->
+                  <h2 id="api-structure" data-scrollspy-target=""
+                    class="text-2xl md:text-4xl font-bold my-5 text-primaryDark tracking-wide">API structure</h2>
+                  <p class="text-md text-secondaryDark">
+                    The Marketing API generally follows REST conventions, with some deviations.
+                  </p>
+                  <ul class="text-md text-secondaryDark my-4 list-disc leading-relaxed space-y-2 ml-4">
+                    <li class="marker:text-primaryDark">Resources are typically nouns like subscribers or campaigns.
+                    </li>
+                    <li class="marker:text-primaryDark">Subresources can be multiply nested under resources.</li>
+                    <li class="marker:text-primaryDark">Actions are usually represented by HTTP methods.</li>
+                    <li class="marker:text-primaryDark">Responses use the generic JSON content type.</li>
+                  </ul>
+                  <p class="text-md text-secondaryDark">
+                    We use the API Specification to describe each endpoint. The API self-description also contains type
+                    information to help you error-check your requests.
+                  </p>
+                  <p class="text-md text-secondaryDark mt-4">
+                    The root url for the API is <span
+                      class="font-semibold text-black underline">https://&lt;dc&gt;.api.docs.com/3.0/</span>. The
+                    &lt;dc&gt;
+                    part
+                    of the URL corresponds to the data center for your account. For example, if the data center for your
+                    account is us6, all API endpoints for your account are available relative to <span
+                      class="font-semibold text-black underline">https://us6.api.docs.com/3.0/</span>.
+                  </p>
+                  <p class="text-md text-secondaryDark mt-4">
+                    There are a few ways to find your data center. It's the first part of the URL you see in the API
+                    keys section of your account; if the URL is <span
+                      class="font-semibold text-black underline">https://us6.docs.com/account/api/</span>, then the data
+                    center
+                    subdomain is us6. It's also appended to your API key in the form key-dc; if your API key is <span
+                      class="font-semibold text-black underline">0123456789abcdef0123456789abcde-us6</span>, then the
+                    data center
+                    subdomain is us6. And finally, if you're connecting via OAuth 2, you can find the data center
+                    associated with the token via the OAuth Metadata endpoint; for more information, see the OAuth
+                    guide.
+                  </p>
+                  <div class="my-4 p-4 bg-slate-100 border rounded-sm">
+                    <div class="flex justify-center items-center space-x-4 text-primaryDark text-sm leading-loosed">
+                      <svg class="" width="50" height="50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1Zm1-3H7V4h2v5Z"
+                          fill="#A855F7">
+                        </path>
+                      </svg>
+                      <p>
+                        Note: You will see the &lt;dc&gt; placeholder or an actual data center subdomain in examples
+                        throughout this documentation. Either way, make sure to replace it in your code with the data
+                        center subdomain for your account, or your request may generate an error.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Article section -->
+              <div>
+                <div>
+                  <!-- HTML Bookmark -->
+                  <!-- The data-scrollspy-target attribute makes the scrollspy work -->
+                  <h2 id="connect-api" data-scrollspy-target=""
+                    class="text-2xl md:text-4xl font-bold my-5 text-primaryDark tracking-wide">Connecting to the API
+                  </h2>
+                  <p class="text-md text-secondaryDark mt-4">
+                    You can authenticate requests using either your API key or an OAuth access token, depending on your
+                    use case. You should use an API key if you're writing code that tightly couples your application
+                    data to your Docs account data; if you ever need to access someone else's Docs account data, you
+                    should use OAuth 2.
+                  </p>
+                  <p class="text-md text-secondaryDark mt-4">
+                    For more information on the Docs OAuth 2 flow, see Access Data on Behalf of Other Users with OAuth
+                    2.
+                  </p>
+                  <p class="text-md text-secondaryDark mt-4">
+                    If you're integrating with the Docs API using one of the <nuxt-link to="#0"
+                      class="text-blue-600 font-semibold hover:underline cursor-pointer">official client
+                      libraries</nuxt-link>, you won't need to worry about the implementation details
+                    for authentication.
+                  </p>
+                </div>
+                <div class="mb-4">
+                  <h3 class="text-xl md:text-4xl font-bold my-5 text-primaryDark">Authenticate with an
+                    API key or OAuth 2 token</h3>
+                  <p class="text-md text-secondaryDark mt-4">
+                    API keys and OAuth 2 tokens can be used to make authenticated requests the same way. We'll refer to
+                    both as tokens.
+                  </p>
+                  <p class="text-md text-secondaryDark mt-4">
+                    You can either use HTTP Basic Authentication or Bearer Authentication.
+                  </p>
+                  <p class="text-md text-secondaryDark my-4">
+                    HTTP Basic Authentication:
+                  </p>
+                  <pre class="px-4 bg-[#1E293B] border rounded-md text-gray-400 whitespace-pre-line">
+                    <code class="">
+                        <span class="text-green-500">curl</span> --request GET \
+
+                        --url <span class="text-purple-500">'https://&lt;dc&gt;.api.docs.com/3.0/'</span> \
+
+                        --user 'anystring:TOKEN
+                    </code>
+                  </pre>
+                </div>
+              </div>
+
+              <div class="my-4">
+                <div>
+                  <!-- HTML Bookmark -->
+                  <!-- The data-scrollspy-target attribute makes the scrollspy work -->
+                  <h2 id="api-limits" data-scrollspy-target=""
+                    class="text-2xl md:text-4xl font-bold my-5 text-primaryDark tracking-wide">API limits</h2>
+                  <p class="text-md text-secondaryDark my-4">
+                    To improve the experience for all our users, we impose some limits on API requests. These limits
+                    prevent a single user from making too many expensive calls at once. Exceeding the limits can result
+                    in your API access being disabled, so be cognizant of the quantity and complexity of your requests.
+                    Currently there are no options to raise the limit on a per-customer basis.
+                  </p>
+                </div>
+                <div class="my-5">
+                  <h3 class="text-lg md:text-4xl font-bold my-5 text-primaryDark">Throttling</h3>
+                  <p class="text-md text-secondaryDark my-4">
+                    The Marketing API has a limit of 10 simultaneous connections. You'll receive a 429 error if you
+                    reach the limit. At exceptionally high volumes, you may receive an HTTP 429 or 403 without a JSON
+                    body.
+                  </p>
+                  <p class="text-md text-secondaryDark my-4">
+                    We recommend that you cache frequently accessed values that do not change often in your
+                    application's data store. This will prevent your application from bumping up against the throttling
+                    limitations and will likely provide faster access to that data.
+                  </p>
+                </div>
+                <div class="mb-4">
+                  <h3 class="text-lg md:text-4xl font-bold my-5 text-primaryDark">Stream timeouts</h3>
+                  <p class="text-md text-secondaryDark my-4">
+                    The Marketing API has a 120-second timeout on API calls. You may see this type of timeout after
+                    you've made a network socket connection and are already sending and receiving data.
+                  </p>
+                  <p class="text-md text-secondaryDark my-4">
+                    Response times are dependent on the complexity of your request and the general load across Docs.
+                    Some endpoints in the Marketing API return values that are large and slow to calculate. Once you
+                    know what data you need, use the <a class="text-blue-600 hover:underline font-semibold"
+                      href="#0">pagination and
+                      partial
+                      response</a> capabilities to request only what is essential to you.
+                  </p>
+                  <div class="my-4 p-4 bg-slate-100 border rounded-sm">
+                    <div class="flex justify-center items-center space-x-4 text-primaryDark text-sm">
+                      <svg width="50" height="50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8ZM7 11.4 3.6 8 5 6.6l2 2 4-4L12.4 6 7 11.4Z"
+                          fill="#14B8A6">
+                        </path>
+                      </svg>
+                      <p class="leading-relaxed">
+                        Note: You will see the &lt;dc&gt; placeholder or an actual data center subdomain in examples
+                        throughout this documentation. Either way, make sure to replace it in your code with the data
+                        center subdomain for your account, or your request may generate an error.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feedback -->
+          <div class="my-8 flex justify-between items-center border-b border-gray-300 pb-8">
+            <div class="text-lg font-bold text-primaryDark">Was this helpful?</div>
+            <div class="space-x-2">
+              <button class="c23m4">
+                <!-- <span class="ceq6q">No, it didn't help</span> -->
+                <img src="/assets/images/feedback-01.svg" width="21" height="21" alt="No, it didn't help">
+              </button>
+              <button class="c23m4">
+                <!-- <span class="ceq6q">Still feel confused</span> -->
+                <img src="/assets/images/feedback-02.svg" width="21" height="21" alt="Still feel confused">
+              </button>
+              <button>
+                <!-- <span class="ceq6q">Sounds good!</span> -->
+                <img src="/assets/images/feedback-03.svg" width="21" height="21" alt="Sounds good!">
+              </button>
+              <button class="c23m4">
+                <!-- <span class="ceq6q">Excellent article</span> -->
+                <img src="/assets/images/feedback-04.svg" width="21" height="21" alt="Excellent article">
+              </button>
+            </div>
+          </div>
+
+
+
+          <!-- Page navigation -->
+          <div class="my-4">
+            <!-- Next link -->
+            <div class="mb-4 pb-6 border-b border-gray-300">
+              <div>
+                <div class="text-blue-800 font-semibold uppercase text-sm">Next</div>
+                <div>
+                  <nuxt-link class="flex items-center text-md text-primaryDark font-bold space-x-2" href="#0">
+                    <span>Methods and Parameters</span>
+                    <svg class="cursor-pointer" width="8" height="10" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" fill="#5D697B"></path>
+                    </svg>
+                  </nuxt-link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- Content footer -->
+          <footer class="my-10">
+            <div class="flex flex-col items-center md:flex-row md:items-center md:justify-between">
+              <div class="md:mr-4">
+                <div class="flex flex-col items-center md:flex-row">
+                  <!-- Logo -->
+                  <nuxt-link to="/" aria-label="Fredox">
+                    <img src="/assets/images/Capacitor.svg" width="32" height="32" alt="Fredox Logo">
+                  </nuxt-link>
+                  <div class="text-secondaryDark my-2 md:ml-4">Copyright © Cruip<span>. All rights
+                      reserved.</span></div>
+                </div>
+              </div>
+              <!-- Social links -->
+              <ul class="flex items-center justify-center space-x-6 mt-4 md:mt-0">
+                <li>
+                  <a class="text-blue-700" href="#0" aria-label="Twitter">
+                    <Icon name="fa6-brands:x-twitter" class="text-xl cursor-pointer" />
+                  </a>
+                </li>
+                <li>
+                  <a class="text-blue-700" href="#0" aria-label="Github">
+                    <Icon name="bi:github" class="text-xl" />
+                  </a>
+                </li>
+                <li>
+                  <a class="text-blue-700" href="#0" aria-label="Telegram">
+                    <Icon name="file-icons:telegram" class="text-xl" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </footer>
+
+        </article>
       </div>
-      <div class="mx-auto text-balance -z-50">
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam
-          ipsa laudantium molestiae eveniet ab incidunt ut exercitationem culpa,
-          praesentium adipisci saepe enim natus accusantium similique libero a,
-          quos esse consectetur! Officia, eum fuga nisi animi praesentium
-          expedita temporibus aut quas! Accusantium, optio labore nulla corporis
-          doloribus debitis in? Sit consequatur consequuntur modi quasi sed.
-          Sequi beatae tempora architecto atque corporis. Quae illum, nihil
-          excepturi enim necessitatibus dolores commodi. Quasi aperiam
-          consequuntur voluptate rem saepe et enim suscipit neque totam
-          reiciendis porro amet, eum illum earum maxime. Tenetur suscipit amet
-          laboriosam! Ex rerum consequuntur maiores est minima perspiciatis
-          optio veritatis animi quos incidunt! Iusto officia aliquam
-          repudiandae, voluptates harum, mollitia accusantium facilis inventore
-          aperiam dicta, vel qui doloremque. Rem, autem odio. Excepturi hic odit
-          blanditiis illo. Nostrum officiis in cupiditate voluptates natus!
-          Illum, quod. Esse vel corporis odit quod, aliquid provident reiciendis
-          cupiditate iusto iure! Obcaecati excepturi molestiae cum eum
-          perspiciatis. Dolor expedita officiis, dolore iure deleniti ab non
-          totam quisquam. Fuga, unde totam quae doloribus quos sequi ex impedit
-          dolore nisi laboriosam nemo eligendi. Nisi cumque mollitia deserunt
-          adipisci similique. Tempore at quidem soluta dolore reprehenderit,
-          cum, dolorem possimus quisquam alias vel aut ad numquam doloremque
-          necessitatibus saepe nulla repudiandae quam amet similique repellat
-          aliquid, eligendi architecto minus? Perferendis, iure? Quaerat quidem
-          non sapiente ducimus modi ratione facere ipsam beatae aliquid delectus
-          quia odit consequuntur nostrum perferendis aspernatur, esse tempore,
-          nisi rem eveniet. Quo saepe cupiditate totam illo, mollitia in! Dicta
-          eius ducimus explicabo eveniet ut architecto consequuntur quae
-          pariatur? Rem libero, cum modi saepe dolorum sapiente, fugit corporis
-          enim, quam quas laborum nam culpa magnam harum vitae officia
-          veritatis! Voluptate impedit dolorum quibusdam fugiat nobis repellat,
-          magnam facilis delectus rerum dicta ab? Quod, nobis eaque earum
-          reiciendis error eos repudiandae cum modi, sapiente quasi commodi
-          iure? Temporibus, suscipit exercitationem! Cumque, quidem? Libero
-          ullam non asperiores. Accusamus, eos, similique laborum et aperiam
-          eius ipsam culpa expedita beatae veniam atque? Porro provident nostrum
-          tempore possimus iure facilis harum veniam. Delectus, at. Veniam,
-          molestiae necessitatibus! Rem cupiditate, exercitationem adipisci
-          illum reiciendis atque magni pariatur? Eos deleniti eligendi harum
-          fuga quidem veritatis quasi, fugiat delectus exercitationem error
-          labore quae illo magni? Et, quo. Atque ratione vitae voluptatum labore
-          repudiandae perferendis explicabo dolorum distinctio beatae nihil quis
-          incidunt fuga dicta, illo vero amet ut placeat autem. Quod, sunt ad
-          dolorem quo amet maxime esse! Fuga, esse ab quo ducimus architecto
-          unde minima. Saepe reiciendis modi possimus, eligendi aperiam error
-          fugit, magnam perspiciatis pariatur earum cum hic! Nobis sapiente
-          corrupti sequi consectetur ut veritatis natus? Quisquam reiciendis
-          provident quae obcaecati? Cupiditate eius ratione corporis alias
-          dignissimos facilis quibusdam ad autem sed dolorum, quo blanditiis.
-          Reiciendis esse error accusantium provident harum. Enim impedit
-          dolores perspiciatis temporibus. Aspernatur beatae ab, accusamus error
-          natus earum illum quia cupiditate aliquid, unde maiores atque nulla.
-          Dolorem saepe harum aliquam nostrum excepturi distinctio, iure ducimus
-          eaque, magnam quasi earum. Earum, totam? Incidunt aliquid molestias
-          exercitationem voluptates eligendi architecto quos tempore deserunt
-          iusto quas alias modi qui minus vel, delectus a laudantium adipisci
-          commodi veniam quam ut. Aliquam cum velit perspiciatis dolorum. Quo
-          expedita rerum incidunt quidem. Laudantium, eos porro quo nam
-          cupiditate autem! Explicabo possimus architecto voluptatibus dolor
-          ducimus iure, repudiandae labore nulla ut et atque dolores optio quas
-          rem culpa? Rem corrupti mollitia quod qui illo officia beatae sint
-          quisquam ducimus atque id quas culpa vitae placeat aliquam architecto
-          deserunt nobis blanditiis voluptatum expedita, quia officiis repellat
-          rerum! Illo, quasi. Animi voluptate nisi sunt magni repudiandae nobis
-          asperiores doloribus atque, impedit aut laboriosam mollitia corrupti,
-          quia maxime iure modi architecto! Perspiciatis sequi ipsum tempora id.
-          Fuga totam non ratione quam. Harum aliquid consectetur nostrum
-          repudiandae magnam rem fugit deserunt debitis cum eveniet, corporis
-          sed, facilis, aliquam tempore delectus alias nesciunt unde. Esse
-          tenetur distinctio nam veritatis facilis suscipit quos nobis! Nulla
-          hic, nemo in at totam soluta, excepturi, ad praesentium aperiam
-          officiis sit inventore odit vitae velit. Molestias, amet sapiente.
-          Soluta officia obcaecati excepturi ratione doloremque voluptates
-          perferendis, ipsum omnis? Nisi numquam libero, unde aliquam molestias,
-          ex amet repellat, veritatis repellendus similique quis ratione iusto
-          cumque possimus. Quidem nemo perspiciatis cumque aspernatur mollitia?
-          Assumenda doloribus nemo saepe labore delectus quo. Maiores porro
-          voluptas exercitationem! Necessitatibus, possimus animi doloremque
-          voluptatem itaque, quaerat dolorem reiciendis mollitia corporis
-          blanditiis quisquam consequatur! Perspiciatis doloremque numquam
-          aperiam nesciunt doloribus dolore veritatis labore recusandae odit
-          repellat. Magnam nostrum suscipit iusto. Sit quas mollitia voluptatem
-          ex totam fuga veritatis esse ratione? Eius beatae reiciendis optio
-          vitae ullam perferendis quia architecto, labore error voluptatem
-          exercitationem inventore, expedita vero. Numquam, et optio facilis
-          eius quidem ipsa debitis asperiores, nostrum beatae cum quos.
-          Voluptatum obcaecati modi, cupiditate, non hic quisquam expedita ad
-          distinctio vero, magnam eius officia amet beatae totam? Natus sint
-          aperiam fugiat iste similique maxime totam numquam fuga ab vitae
-          deserunt veniam repellendus, impedit aliquam asperiores consectetur
-          rem tempore, alias quisquam dolore assumenda, praesentium eum nulla
-          hic? Facilis. Aut quam dolor illum architecto ex voluptas, dolorum
-          est! Animi maiores eaque repellendus consequatur quibusdam laborum
-          nesciunt quidem harum error rerum similique amet, ipsa nam id, quasi
-          explicabo magnam dicta. Corporis mollitia eum sequi vero libero ullam.
-          Obcaecati doloremque dolorem recusandae nostrum mollitia
-          necessitatibus laborum earum maxime consequuntur sunt sequi commodi,
-          fugiat eveniet rerum? Quae inventore ipsa porro numquam velit? Optio
-          aliquam sint facilis autem consectetur nisi perferendis, quas incidunt
-          alias nemo earum? Sunt odio officia perferendis illum quo, dolores
-          explicabo, saepe molestiae neque aliquid incidunt nobis obcaecati iste
-          culpa! Delectus maiores iusto dolor quidem sequi qui velit autem enim
-          soluta alias cum quasi doloribus iste, saepe atque veniam incidunt
-          eius veritatis labore praesentium vel. Tempore earum iure modi velit.
-          Voluptate accusantium laudantium mollitia repudiandae consectetur
-          earum a eum magnam iste, quisquam impedit eius odit, perferendis non.
-          Molestias sunt laboriosam, eius minima ad id reiciendis expedita harum
-          perferendis, nam maxime. Labore provident ratione quae velit soluta
-          beatae dolorum, corrupti cum. Vero voluptatum velit quidem dolorem
-          sint ad dolor repellendus deserunt atque a. Possimus consequuntur
-          optio quo saepe facere iste quia. Adipisci tempore placeat distinctio
-          minima optio possimus praesentium earum. In dolorem odit similique est
-          repellendus dicta quas amet facere, et ducimus blanditiis velit illum!
-          Laudantium repudiandae iusto voluptatum rem. Qui. Natus, rerum fuga!
-          Quisquam, quod quam reprehenderit voluptas repudiandae ipsa officia
-          nobis expedita, nulla odio odit libero accusamus consectetur ratione
-          asperiores natus delectus porro. Itaque asperiores alias minus quod
-          nulla? Inventore vel eligendi culpa, nisi distinctio quam quibusdam
-          voluptate voluptatem esse, placeat maxime laudantium magnam libero,
-          eaque repellendus. Aut tempore officiis expedita rem nobis incidunt
-          saepe quis enim maxime earum! Officia repellat maiores mollitia
-          placeat, blanditiis nisi magni, eum ut nostrum beatae quos accusantium
-          unde similique adipisci praesentium ipsa, veritatis rem obcaecati sint
-          nesciunt aliquam tenetur aut alias. Suscipit, explicabo. Sit
-          distinctio ducimus magnam veritatis iste veniam deserunt, laudantium
-          consequuntur quisquam quidem hic, accusamus voluptatem expedita id a
-          tempora, ea rem animi explicabo pariatur rerum in. Dolore fugiat
-          veniam adipisci. Atque vel magni officia facilis aspernatur nemo fuga
-          repellat! Fuga voluptatibus amet tenetur accusantium nobis quia
-          numquam maiores, a impedit deleniti illum facere ea eos repellendus
-          alias aliquid sapiente similique. Dignissimos quasi saepe impedit.
-          Perferendis dolore, fugiat libero corrupti labore ipsam harum
-          veritatis, earum, totam id necessitatibus maiores. Eum voluptatum fuga
-          cum autem repudiandae illo delectus quam? Officiis, amet iusto.
-          Officia impedit cum dolor aspernatur itaque recusandae beatae quo
-          harum qui? Eum aperiam numquam molestias! Doloremque reiciendis, sit
-          voluptate quod sapiente veritatis! Fugiat voluptates labore magnam
-          quas odit ullam magni! Nam, eaque hic repudiandae eveniet perspiciatis
-          recusandae quisquam quo, suscipit natus temporibus repellendus
-          corporis ullam! Officia velit eveniet tempore voluptatibus excepturi
-          fugiat iste repudiandae a, vitae, placeat officiis quae ipsa?
-          Consequatur nesciunt quod in repudiandae itaque voluptatum autem sint,
-          iure quibusdam labore obcaecati enim repellendus nihil repellat,
-          architecto possimus exercitationem reprehenderit? Magnam quia iusto
-          repellat tenetur rerum consequuntur pariatur possimus. Aperiam aliquid
-          impedit molestiae at unde, ipsum asperiores eius, magnam ea dicta
-          magni error laboriosam! Eligendi eos labore velit quaerat, dolores
-          commodi? Soluta magnam facere sunt itaque cumque nesciunt quae!
-          Quibusdam vel quod molestiae voluptates accusantium quaerat quis quasi
-          repellendus odit blanditiis, mollitia, cum, numquam minima! Doloremque
-          dicta, autem dolor quo, dolores quod repellendus temporibus, tempore
-          unde reiciendis ipsam animi! Perferendis, deserunt architecto
-          voluptatibus vitae corrupti magnam tempora recusandae enim.
-          Perferendis fuga hic, ipsa tempore quia eaque numquam quisquam dicta
-          esse! Placeat laudantium quaerat saepe. Doloremque dolore facilis vel
-          architecto. Fugit beatae laboriosam commodi quod blanditiis enim
-          voluptas laborum, eveniet animi, quibusdam molestias at debitis
-          consequatur odit corporis optio sit quaerat illum deserunt nobis
-          facilis repudiandae illo. Nam, labore cumque. Architecto eaque quod
-          itaque quae. Officiis itaque odit nulla et distinctio nam ducimus
-          porro nemo rem error. Quaerat sed modi necessitatibus fuga, quam nemo
-          iusto, rerum voluptate natus eius eveniet! Commodi asperiores quam
-          voluptas sint iure culpa ab pariatur magnam quos exercitationem beatae
-          cupiditate recusandae eos nobis doloremque excepturi, ipsam omnis.
-          Asperiores, dolorem. Deleniti labore voluptate, impedit voluptatem
-          natus beatae. Quidem suscipit praesentium illo magnam iste temporibus
-          quia est pariatur non! Non nihil dolorum fugit labore perferendis.
-          Eius molestias beatae sed corporis, quae placeat illo quas voluptatum
-          minima provident. Id? Animi voluptatibus fugit delectus alias ea,
-          eligendi cum. Doloribus quae recusandae vero atque consequatur
-          voluptatibus quaerat, dolor voluptas magni soluta, nesciunt rerum
-          minima ad saepe dolores, aliquam fugit necessitatibus possimus? Ipsa
-          velit iusto accusamus corporis maiores deleniti accusantium a enim
-          culpa. Possimus quis dolorem molestiae dolor voluptatibus vitae illo
-          quam maiores eius eveniet sint voluptas, fugiat cumque repellendus
-          magni reiciendis. Provident dolore voluptatibus eligendi adipisci! Id
-          laudantium, necessitatibus corrupti eveniet sequi aliquid facere
-          quaerat? Magni reprehenderit expedita ab, quis eum aut! Enim ratione
-          eius corporis, laudantium possimus veritatis incidunt! Quisquam.
-          Veniam quasi asperiores facilis porro. Asperiores quas pariatur
-          obcaecati, molestiae aspernatur voluptatem architecto, corrupti fuga
-          tempora perspiciatis illo sequi porro quo quidem. Magnam deleniti
-          fugit incidunt eaque atque, ipsum nulla. Rerum aut sed corporis quidem
-          veritatis nihil deleniti, adipisci neque soluta quas. Voluptates,
-          perspiciatis! Libero, nisi amet assumenda laborum unde voluptate
-          magnam illum dolor excepturi neque sequi, rerum quae illo? Laborum
-          aliquam hic molestiae repellendus fuga doloremque totam! Cupiditate,
-          quas quis. Aperiam impedit porro illum nemo nobis nam unde delectus
-          eum iste vero alias nesciunt, asperiores officiis? Expedita, deserunt
-          eaque. Eum iste ex eligendi laborum hic fugiat earum iusto minus
-          labore alias, non quis, nobis explicabo dolor a dolore eius dolorum
-          sequi. Nihil distinctio aut fuga voluptatibus doloremque unde illum!
-          Mollitia hic quo praesentium sint aut animi enim dolorum, eligendi
-          suscipit nostrum dolor voluptatum aliquid, dignissimos libero fugit
-          odit beatae? Est eveniet magni doloribus corporis quasi architecto
-          consequuntur at incidunt. Minus est corporis, consequuntur harum
-          exercitationem expedita reiciendis voluptatum officia veniam. Labore
-          animi, reprehenderit enim quae exercitationem ea laudantium minus
-          similique sed ipsam nihil ipsum aspernatur voluptates vero corrupti?
-          Accusantium. Aliquid natus eos facilis necessitatibus delectus
-          officia? Culpa voluptate ut omnis aliquam voluptatum. Veritatis
-          voluptatum dignissimos nesciunt harum aliquam! Dolorum minima aliquam
-          dicta commodi unde tenetur libero numquam voluptatem quos. Porro
-          delectus facilis aut debitis optio aliquid sed temporibus officiis
-          tenetur ipsum dignissimos at eos veritatis accusamus deserunt
-          aspernatur atque tempora odio, quia vero cumque doloremque id iusto
-          distinctio. Rem? Maxime voluptatum nihil, ab quia aut doloremque
-          officia saepe voluptates perferendis autem eius, vel cum eveniet
-          dolorem et tempore dolore ut. Fuga, repellat culpa! Pariatur ut sed
-          magni beatae similique. Quod quas itaque recusandae ullam
-          exercitationem suscipit beatae maiores ipsum, a pariatur iure dicta
-          tempore quis iusto praesentium? Non necessitatibus consequatur optio
-          earum tempore atque doloremque numquam, maxime dolores natus.
-          Accusamus odio delectus voluptatem eos accusantium expedita quidem sed
-          ea iure praesentium aliquid quod commodi aperiam, asperiores
-          repellendus quis, velit at placeat deleniti. Tempora esse molestiae,
-          culpa dolorum ratione nesciunt. Maxime ullam neque molestiae ut
-          reiciendis, provident asperiores illum dignissimos optio, deleniti,
-          corrupti aliquam vero modi error suscipit atque maiores nemo sit vitae
-          impedit? Quisquam modi distinctio in deleniti officia? Quae non
-          pariatur illo placeat perspiciatis sapiente doloribus ad commodi odit,
-          nam laboriosam, veritatis sunt sint eum illum tenetur voluptate
-          aliquid provident quod. Ipsam expedita modi doloribus, est aperiam
-          quas! Esse rem omnis minus sint molestias iure nisi aliquam sapiente
-          odit voluptatum? Dolores ratione, voluptas, ullam repudiandae nostrum
-          optio exercitationem libero possimus expedita sint praesentium
-          repellat maxime mollitia cum magni! Rem eum quibusdam, harum sint
-          eveniet mollitia magnam! At repellendus laboriosam rerum delectus
-          accusantium? Eos rem voluptate harum, cupiditate delectus animi ipsam
-          architecto, velit quisquam obcaecati consequatur numquam magni alias.
-          Aspernatur, eum. Doloribus in quod repellat magni! Ipsum provident
-          consequuntur aliquam, tempore delectus blanditiis exercitationem vero
-          dolore maiores laudantium magni culpa, quae earum in veritatis sequi
-          molestiae cumque, fuga deleniti. Iure autem nihil debitis commodi
-          harum, fuga dolorem eveniet officiis consequatur eum qui recusandae
-          quos totam facilis possimus nostrum necessitatibus quae quas aliquam
-          culpa illum cupiditate. Neque praesentium voluptatem quasi! Odio a
-          mollitia laudantium voluptatibus recusandae unde aut ipsa molestias
-          vitae, doloremque, et illum incidunt non est illo labore omnis modi
-          nihil aperiam aliquam totam! Nobis incidunt nostrum aliquam
-          voluptatibus? Rem quod ipsum, numquam illum assumenda minima! Cumque
-          labore ullam quae optio quia, vero aliquid vitae suscipit sunt. Quae
-          facilis veniam enim. Eum iusto, veniam exercitationem dolorem voluptas
-          voluptates. Veniam. Autem excepturi odio sapiente consequuntur illum
-          iure sed, quibusdam nam harum debitis numquam expedita suscipit sint
-          nostrum quo ea perferendis, quae, molestiae blanditiis nulla quis
-          impedit! Vero tempore distinctio cupiditate. Quaerat expedita totam
-          aut qui, harum quidem nesciunt exercitationem voluptatibus rem
-          recusandae iure fugiat iste temporibus commodi iusto vero corporis
-          quas doloribus placeat delectus saepe esse pariatur. In, inventore
-          maiores. Architecto ratione voluptatum aperiam saepe officia
-          perspiciatis molestiae odit cupiditate illum culpa itaque,
-          exercitationem nemo delectus, repellat aut esse. A, quasi illum? Sit
-          eveniet in quo atque est neque saepe? Aut beatae culpa non perferendis
-          error minima, quam inventore quibusdam quae, adipisci vitae optio
-          rerum ipsam voluptas, delectus hic quos repellendus id aspernatur.
-          Optio sed, sequi hic eveniet quos atque? Expedita labore aperiam,
-          natus placeat quidem earum sit, cupiditate vero neque voluptate
-          similique, numquam at sequi officia harum eos suscipit magnam
-          distinctio in quos modi laboriosam sapiente rem. Totam, qui! Voluptas
-          commodi amet nam, eveniet expedita maxime minima molestias eum cum
-          odit obcaecati quasi a temporibus asperiores? Odit laboriosam
-          temporibus facere, libero, corrupti fuga commodi voluptatibus non
-          pariatur, voluptate ratione? Quaerat cupiditate ad aut sed quis magnam
-          fugit? Recusandae praesentium eum rem quod similique, veniam
-          aspernatur repellendus hic iure atque minus eos quaerat alias
-          doloremque! Facilis consequatur dolorem temporibus iure! Fugit
-          dignissimos recusandae sit, numquam qui alias velit laborum!
-          Reiciendis nam praesentium quam dolorem, id officia voluptas quibusdam
-          repudiandae modi adipisci beatae? Mollitia accusamus hic autem culpa
-          numquam fugiat consequuntur? Numquam, fuga deserunt veritatis eos sint
-          ad nostrum vel aspernatur commodi! Vel nesciunt doloribus quisquam
-          excepturi soluta cupiditate qui accusamus dolorum delectus? Nobis
-          perspiciatis quia fugit commodi dolores dignissimos officia.
-          Repellendus reiciendis quis, eos officiis modi ex. Aut quam quae quas
-          neque tempora, impedit, quo voluptate necessitatibus voluptas ea
-          exercitationem officiis? Quidem commodi atque sint dolore numquam unde
-          maiores. In. Illo reiciendis tempora, maxime dicta soluta quidem
-          dolorum quas blanditiis ullam delectus, doloribus deserunt eius
-          expedita omnis quos voluptatibus. Praesentium soluta quis assumenda,
-          consectetur tempora amet commodi. Repellat, ratione suscipit. Deleniti
-          sed debitis veniam blanditiis pariatur culpa voluptate ipsum! Culpa
-          enim temporibus dolorem qui nesciunt excepturi! Consequuntur
-          recusandae corrupti cum, cumque ut temporibus eaque dolore, libero
-          accusantium similique error dignissimos. Beatae obcaecati quos minus
-          inventore. Rem unde distinctio quo saepe modi rerum deserunt quos
-          consectetur corporis non quasi, placeat eligendi, numquam ipsam,
-          accusamus optio? Dignissimos voluptates tenetur illum atque quo.
-          Corporis nostrum debitis magni, possimus voluptatibus amet odio velit
-          similique illum, neque in obcaecati dignissimos facere saepe repellat
-          voluptatem nesciunt. Veritatis, qui quos. Dolorum, ex qui odio optio
-          quasi consequuntur. Quae, eius! Quidem ea alias sit ducimus architecto
-          quasi dolorem veritatis vel nisi tempora, ipsum voluptates omnis neque
-          nesciunt cupiditate nemo, saepe quos in facere? Sint dolorum
-          laboriosam totam sunt! Id beatae minima alias numquam impedit.
-          Repellendus culpa minus minima autem voluptates, necessitatibus quos
-          laudantium quae odit pariatur et rerum impedit consectetur. Fugit
-          accusamus rerum unde quidem non repellendus enim. Voluptate, obcaecati
-          doloremque! Animi est, praesentium perferendis incidunt facere
-          inventore, nobis, odit quam officia aperiam magnam aliquid dolorem
-          quasi id vel maiores reiciendis ut doloribus deleniti nisi unde?
-          Ipsam, exercitationem? Quo dolore inventore possimus sed nulla
-          tempora! Ipsam quisquam, provident, corrupti quos architecto assumenda
-          nemo nobis fuga non qui ducimus dignissimos officiis modi minus itaque
-          in ea error eos vel! Sunt beatae tempore non vero earum dolore totam
-          vitae, repudiandae necessitatibus natus. Maxime repellat eos sunt id
-          sapiente autem soluta vitae sed explicabo magni, nostrum optio et
-          quam! Corrupti, ea. Quibusdam quae architecto cumque aliquid aliquam
-          temporibus expedita velit doloremque quam iste molestias, quaerat vero
-          laudantium impedit provident, soluta et ratione ut fuga. Eius,
-          possimus ut voluptatum necessitatibus repellat sint! Dolores
-          architecto ea ab consequatur sunt commodi. Fuga ipsam vitae ipsa
-          maiores eius, ut voluptates, velit accusantium esse ipsum praesentium
-          amet officiis consequuntur tempora libero quod, inventore maxime iusto
-          aliquam. Eos voluptatum iure magni voluptatibus quae aspernatur fugit
-          nostrum laborum fugiat architecto! Aut, inventore culpa, expedita
-          dicta consequatur et reiciendis aliquid illo laudantium exercitationem
-          temporibus quibusdam omnis ex excepturi esse. Eaque, nostrum nulla
-          reiciendis, sunt reprehenderit ab consectetur quibusdam labore, itaque
-          quisquam ipsum tenetur ut? Illum quis dolorem numquam amet. Ab culpa
-          quam delectus, illum unde consequuntur facilis similique modi.
-          Deserunt recusandae ea praesentium suscipit at aliquam provident
-          voluptas tempore, repudiandae ullam tempora voluptates quos nihil
-          aliquid temporibus architecto, esse quis molestiae porro, mollitia
-          eveniet expedita quasi. Maiores, ipsum eligendi. Odio asperiores
-          maxime exercitationem placeat saepe. Iste omnis, eos vel officiis,
-          doloremque quasi quibusdam est enim ipsa neque soluta? Sed impedit
-          fuga mollitia molestias esse corporis, et asperiores quisquam dolore.
-          Cumque, consequatur sunt. Repudiandae molestias quidem est, doloribus
-          odit qui harum? Officiis accusamus quisquam veniam corporis nostrum,
-          ut odio tempora repellat consequuntur nobis reprehenderit et illo
-          molestias odit quibusdam aut. Neque ex natus aspernatur obcaecati
-          quasi sequi dolorum, eveniet nulla possimus quod? Beatae blanditiis,
-          corrupti quidem possimus vitae totam optio excepturi harum, officia
-          soluta sit repellendus nulla, quisquam pariatur quo. Error magni
-          obcaecati, cumque aperiam consequatur delectus vel quas, doloribus
-          voluptatum atque repudiandae quos pariatur assumenda. Officiis enim id
-          ad rerum similique cum. Suscipit libero non soluta animi. Excepturi,
-          quasi.
-        </p>
+
+      <div>
+        <!-- Secondary navigation -->
+        <nav class=" hidden lg:flex fixed right-0 mr-8 mt-8 bg-transparent">
+          <div class="cdn1j cm8ed c9lju chsoc cgs8z cgjfp cmfv9 cvt4c w-64"> <!-- Adjusted width to 250px -->
+            <div class="cvlul cuc78 cy1q3">
+              <div class="czg3k cqusc ci20y clvqt cy91i ckxhs cuhac font-bold text-lg mb-2">On this page</div>
+              <ul class="c61tc">
+                <li class="mb-2">
+                  <a data-scrollspy-link=""
+                    class="c7t8u c3x91 ckunh c95i9 c7mr8 cak8f cyrdu c8f9i cy91i cifcz cuhac hover:text-blue-500 transition-colors"
+                    href="#basics">The basics</a>
+                </li>
+                <li class="mb-2">
+                  <a data-scrollspy-link=""
+                    class="c7t8u c3x91 ckunh c95i9 c7mr8 cak8f cyrdu c8f9i cy91i cifcz cuhac hover:text-blue-500 transition-colors"
+                    href="#api-structure">API structure</a>
+                </li>
+                <li class="mb-2">
+                  <a data-scrollspy-link=""
+                    class="c7t8u c3x91 ckunh c95i9 c7mr8 cak8f cyrdu c8f9i cy91i cifcz cuhac hover:text-blue-500 transition-colors"
+                    href="#connect-api">Connecting to the API</a>
+                </li>
+                <li class="mb-2">
+                  <a data-scrollspy-link=""
+                    class="c7t8u c3x91 ckunh c95i9 c7mr8 cak8f cyrdu c8f9i cy91i cifcz cuhac hover:text-blue-500 transition-colors"
+                    href="#api-limits">API limits</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </div>
+
     </div>
   </main>
 </template>
 
-<style></style>
+
+<style scoped></style>

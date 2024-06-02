@@ -1,0 +1,347 @@
+<main class="c8qw9">
+
+<section class="c8f9i">
+
+<div class="ca9p5 cretk cnvvs c0w53 cmjxz c48ui">
+<img class="cm7rh" src="./images/hero-illustration.svg" width="1972" height="392" aria-hidden="true">
+</div>
+
+<div class="cx25z cresr cplla cc9ex">
+
+<!-- Main content -->
+<div x-data="{ sidebarExpanded: false }">
+
+
+<!-- Page container -->
+<div class="cxhsf ccva2 cirrt c8zl0">
+<div class="cis1s curts cith0 cpwvy cvt4c">
+
+<!-- Page header -->
+<div class="cd2pc cytlw cksrg crcm2">
+<svg width="64" height="54" viewBox="0 0 64 54" xmlns="http://www.w3.org/2000/svg">
+<path class="cwbda" d="M43.832 7.206a1.32 1.32 0 0 0-.47-.492L32.694.195a1.333 1.333 0 0 0-1.39 0L20.64 6.714c-.198.12-.36.29-.471.492L32 14.436l11.832-7.23Z"></path>
+<path class="c8myu cjtfl" d="M20.168 7.206c-.11.197-.168.42-.168.645V19.69c0 .464.242.895.639 1.137l10.666 6.519c.21.128.45.195.695.196V14.437L20.168 7.206Z"></path>
+<path class="cpt26" d="M43.832 7.206c.11.197.168.42.168.645V19.69c0 .464-.242.895-.639 1.137l-10.666 6.519c-.21.128-.45.195-.695.196V14.437l11.832-7.231Z"></path>
+<path class="cwbda" d="M63.832 19.451a1.32 1.32 0 0 0-.47-.492l-10.667-6.518a1.333 1.333 0 0 0-1.39 0L40.64 18.959c-.198.12-.36.29-.471.492L52 26.683l11.832-7.232Z"></path>
+<path class="c8myu cjtfl" d="M40.168 19.451c-.11.198-.168.42-.168.647v11.837c0 .465.242.896.639 1.138l10.666 6.518c.21.128.45.196.695.196V26.683l-11.832-7.232Z"></path>
+<path class="cpt26" d="M63.832 19.451c.11.198.168.42.168.647v11.837c0 .465-.242.896-.639 1.138L52.695 39.59c-.21.128-.45.196-.695.196V26.683l11.832-7.232Z"></path>
+<path class="cwbda" d="M23.832 19.451a1.32 1.32 0 0 0-.47-.492l-10.667-6.518a1.333 1.333 0 0 0-1.39 0L.64 18.959c-.198.12-.36.29-.471.492L12 26.683l11.832-7.232Z"></path>
+<path class="c8myu cjtfl" d="M.168 19.451c-.11.198-.168.42-.168.647v11.837c0 .465.242.896.639 1.138l10.666 6.518c.21.128.45.196.695.196V26.683L.168 19.451Z"></path>
+<path class="cpt26" d="M23.832 19.451c.11.198.168.42.168.647v11.837c0 .465-.242.896-.639 1.138L12.695 39.59c-.21.128-.45.196-.695.196V26.683l11.832-7.232Z"></path>
+<path class="cwbda" d="M43.832 32.769a1.32 1.32 0 0 0-.47-.492l-10.667-6.52a1.333 1.333 0 0 0-1.39 0l-10.666 6.52c-.198.12-.36.29-.471.492L32 39.999l11.832-7.23Z"></path>
+<path class="c8myu cjtfl" d="M20.168 32.769c-.11.197-.168.42-.168.645V45.25c0 .465.242.896.639 1.138l10.666 6.518c.21.128.45.196.695.196V40l-11.832-7.23Z"></path>
+<path class="cpt26" d="M43.832 32.769c.11.197.168.42.168.645V45.25c0 .465-.242.896-.639 1.138l-10.666 6.518c-.21.128-.45.196-.695.196V40l11.832-7.23Z"></path>
+</svg>
+<span class="cj4m6 c4aat ccmpn cdaz4">Documentation</span>
+</div>                                
+
+<article class="cfxuc cksrg">
+
+<!-- Main area -->
+<div class="c3b70">
+
+<!-- Mobile hamburger + breadcrumbs -->
+<div class="cd2pc cdcnn cxzdu cksrg">
+<!-- Hamburger button -->
+<button class="c4scx" @click.stop="sidebarExpanded = !sidebarExpanded" aria-controls="sidebar" :aria-expanded="sidebarExpanded">
+<span class="ceq6q">Menu</span>
+<svg class="c8qqu c1vkn cbvoe c9f80" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="5" width="16" height="2"></rect>
+<rect x="4" y="11" width="16" height="2"></rect>
+<rect x="4" y="17" width="16" height="2"></rect>
+</svg>
+</button>
+<!-- Breadcrumbs -->
+<div class="c4v7m cd2pc c3b70 c61tc c54fe cksrg">
+<span class="cw92p c95i9">Documentation</span>
+<svg class="cnug6 cx9vk cyg2g cya7q" width="8" height="10" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z"></path>
+</svg>
+<span class="czg3k cdujf cbj28 cm5dy">Fundamentals</span>
+</div>
+</div>                                        
+
+<!-- Article content -->
+<div>
+<header class="cytlw">
+<h1 class="czg3k cdujf cldjl cawlm">Basics &amp; Fundamentals</h1>
+<p class="cw92p c95i9 c2uyk">This guide will give you everything you need to start using the Docs Marketing API to manage audiences, control automation workflows, sync email activity with your database, and more.</p>
+</header>
+<div class="cw92p c95i9 cifg7">
+
+<!-- Article section -->
+<div class="cifg7">
+<div class="crgt4">
+<!-- HTML Bookmark -->
+<!-- The data-scrollspy-target attribute makes the scrollspy work -->
+<h2 id="basics" data-scrollspy-target="" class="czg3k cdujf cxq5p cg131">The basics</h2>
+<p>
+The Docs Marketing API provides programmatic access to Docs data and functionality, allowing developers to build custom features to do things like sync email activity and campaign analytics with their database, manage audiences and campaigns, and more.
+</p>
+<p>
+To use the Docs API, you need a Docs account. What you can do with the API depends on what level of Docs plan you have. Once you have an account and are logged in, you can get an API key and begin making calls to the API.
+</p>
+</div>
+<div class="crgt4">
+<h3 class="czg3k cdujf ci20y c2uyk">Using Docs</h3>
+<p>
+Whether you're managing your own campaigns, providing Docs services to your customers or clients, or writing a mobile app, the Docs Marketing API has features to manage and sync your contact data.
+</p>
+<p>
+You can also use the Docs API to handle data in different ways for different purposes. If you are syncing a large amount of data with Docs, you can use batches to avoid hitting the API request limits. For building integrations that let other users access data from their own <a class="chmzs cj4m6 cbj28" href="#0">Docs accounts</a>, you should <a class="chmzs cj4m6 cbj28" href="#0">authenticate with OAuth 2</a>. And if you're developing an app for iOS or Android, the Mobile SDK provides an easy way to work with a mobile-focused subset of the Docs API's functionality.
+</p>
+</div>
+</div>
+
+<!-- Article section -->
+<div class="cifg7">
+<div class="crgt4">
+<!-- HTML Bookmark -->
+<!-- The data-scrollspy-target attribute makes the scrollspy work -->
+<h2 id="api-structure" data-scrollspy-target="" class="czg3k cdujf cxq5p cg131">API structure</h2>
+<p>
+The Marketing API generally follows REST conventions, with some deviations.
+</p>
+<ul class="cuujh c2a2v clrix">
+<li>Resources are typically nouns like subscribers or campaigns.</li>
+<li>Subresources can be multiply nested under resources.</li>
+<li>Actions are usually represented by HTTP methods.</li>
+<li>Responses use the generic JSON content type.</li>
+</ul>
+<p>
+We use the API Specification to describe each endpoint. The API self-description also contains type information to help you error-check your requests.
+</p>
+<p>
+The root url for the API is <span class="czg3k cdujf cbj28 cmgwe">https://&lt;dc&gt;.api.docs.com/3.0/</span>. The &lt;dc&gt; part of the URL corresponds to the data center for your account. For example, if the data center for your account is us6, all API endpoints for your account are available relative to <span class="czg3k cdujf cbj28 cmgwe">https://us6.api.docs.com/3.0/</span>.
+</p>
+<p>
+There are a few ways to find your data center. It's the first part of the URL you see in the API keys section of your account; if the URL is <span class="czg3k cdujf cbj28 cmgwe">https://us6.docs.com/account/api/</span>, then the data center subdomain is us6. It's also appended to your API key in the form key-dc; if your API key is <span class="czg3k cdujf cbj28 cmgwe">0123456789abcdef0123456789abcde-us6</span>, then the data center subdomain is us6. And finally, if you're connecting via OAuth 2, you can find the data center associated with the token via the OAuth Metadata endpoint; for more information, see the OAuth guide.
+</p>
+<div class="ct8ca cy3ow cuc78 clnia ct15l c61tc ctykb cjf95">
+<div class="cd2pc cksrg">
+    <svg class="c4s14 cyg2g cdzx2" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1Zm1-3H7V4h2v5Z"></path>
+    </svg>
+    <p>
+        Note: You will see the &lt;dc&gt; placeholder or an actual data center subdomain in examples throughout this documentation. Either way, make sure to replace it in your code with the data center subdomain for your account, or your request may generate an error.
+    </p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Article section -->
+<div class="cifg7">
+<div class="crgt4">
+<!-- HTML Bookmark -->
+<!-- The data-scrollspy-target attribute makes the scrollspy work -->
+<h2 id="connect-api" data-scrollspy-target="" class="czg3k cdujf cxq5p cg131">Connecting to the API</h2>
+<p>
+You can authenticate requests using either your API key or an OAuth access token, depending on your use case. You should use an API key if you're writing code that tightly couples your application data to your Docs account data; if you ever need to access someone else's Docs account data, you should use OAuth 2.
+</p>
+<p>
+For more information on the Docs OAuth 2 flow, see Access Data on Behalf of Other Users with OAuth 2.
+</p>
+<p>
+If you're integrating with the Docs API using one of the <a class="chmzs cj4m6 cbj28" href="#0">official client libraries</a>, you won't need to worry about the implementation details for authentication.
+</p>
+</div>
+<div class="crgt4">
+<h3 class="czg3k cdujf ci20y c2uyk">Authenticate with an API key or OAuth 2 token</h3>
+<p>
+API keys and OAuth 2 tokens can be used to make authenticated requests the same way. We'll refer to both as tokens.
+</p>
+<p>
+You can either use HTTP Basic Authentication or Bearer Authentication.
+</p>
+<p>
+HTTP Basic Authentication:
+</p>
+<pre class="cxuk4 c1973 cqusc cz31l ct15l c61tc ctykb cjf95"><code class="cs1d1"><span class="c7yu4">curl</span> --request GET \
+
+--url <span class="c7hqs">'https://&lt;dc&gt;.api.docs.com/3.0/'</span> \
+
+--user 'anystring:TOKEN</code>
+</pre>
+</div>
+</div>
+
+<!-- Article section -->
+<div class="cifg7">
+<div class="crgt4">
+<!-- HTML Bookmark -->
+<!-- The data-scrollspy-target attribute makes the scrollspy work -->
+<h2 id="api-limits" data-scrollspy-target="" class="czg3k cdujf cxq5p cg131">API limits</h2>
+<p>
+To improve the experience for all our users, we impose some limits on API requests. These limits prevent a single user from making too many expensive calls at once. Exceeding the limits can result in your API access being disabled, so be cognizant of the quantity and complexity of your requests. Currently there are no options to raise the limit on a per-customer basis.
+</p>
+</div>
+<div class="crgt4">
+<h3 class="czg3k cdujf ci20y c2uyk">Throttling</h3>
+<p>
+The Marketing API has a limit of 10 simultaneous connections. You'll receive a 429 error if you reach the limit. At exceptionally high volumes, you may receive an HTTP 429 or 403 without a JSON body.
+</p>
+<p>
+We recommend that you cache frequently accessed values that do not change often in your application's data store. This will prevent your application from bumping up against the throttling limitations and will likely provide faster access to that data.
+</p>
+</div>
+<div class="crgt4">
+<h3 class="czg3k cdujf ci20y c2uyk">Stream timeouts</h3>
+<p>
+The Marketing API has a 120-second timeout on API calls. You may see this type of timeout after you've made a network socket connection and are already sending and receiving data.
+</p>
+<p>
+Response times are dependent on the complexity of your request and the general load across Docs. Some endpoints in the Marketing API return values that are large and slow to calculate. Once you know what data you need, use the <a class="chmzs cj4m6 cbj28" href="#0">pagination and partial response</a> capabilities to request only what is essential to you.
+</p>
+<div class="ct8ca cy3ow cuc78 clnia ct15l c61tc ctykb cjf95">
+<div class="cd2pc cksrg">
+    <svg class="c18rc cyg2g cdzx2" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8ZM7 11.4 3.6 8 5 6.6l2 2 4-4L12.4 6 7 11.4Z"></path>
+    </svg>
+    <p>
+        Note: You will see the &lt;dc&gt; placeholder or an actual data center subdomain in examples throughout this documentation. Either way, make sure to replace it in your code with the data center subdomain for your account, or your request may generate an error.
+    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Feedback -->
+<div class="cvlul cuc78 c8tii cd2pc cx9kl c5qgg cksrg c247a">
+<div class="czg3k cdujf cmfkd c2uyk">Was this helpful?</div>
+<div class="cd2pc cwcsk cksrg">
+<button class="c23m4">
+<span class="ceq6q">No, it didn't help</span>
+<img src="./images/feedback-01.svg" width="21" height="21" alt="No, it didn't help">
+</button>
+<button class="c23m4">
+<span class="ceq6q">Still feel confused</span>
+<img src="./images/feedback-02.svg" width="21" height="21" alt="Still feel confused">
+</button>
+<button>
+<span class="ceq6q">Sounds good!</span>
+<img src="./images/feedback-03.svg" width="21" height="21" alt="Sounds good!">
+</button>
+<button class="c23m4">
+<span class="ceq6q">Excellent article</span>
+<img src="./images/feedback-04.svg" width="21" height="21" alt="Excellent article">
+</button>
+</div>
+</div>
+
+<!-- Page navigation -->
+<div class="c8tii ckkm4 csb5r cd2pc cifg7 clhlw c247a">
+<!-- Prev link -->
+<!-- <div class="sm:w-1/2 sm:flex flex-col items-start">
+<div>
+<div class="text-xs font-[650] text-blue-600 uppercase mb-1">Prev</div>
+<div>
+<a class="text-slate-800 font-[650] flex items-center dark:text-slate-200" href="#0">
+<svg class="fill-slate-400 shrink-0 mr-2 rotate-180 dark:fill-slate-500" width="8" height="10" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
+</svg>
+<span>Methods and Parameters</span>
+</a>
+</div>
+</div>
+</div> -->
+<!-- Next link -->
+<div class="cyx9i cr4zl cm613 clhlw cfbc5">
+<div>
+<div class="cj4m6 ci20y clvqt ckxhs cy5eu">Next</div>
+<div>
+<a class="czg3k cdujf cd2pc ci20y cksrg" href="#0">
+<span>Methods and Parameters</span>
+<svg class="cnug6 cx9vk cyg2g cfgpa" width="8" height="10" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Content footer -->
+<footer class="cvlul cuc78 ctjfq cbd4t">
+<div class="czube cgm8l cd2pc c4sqe cm613 cksrg">
+<div class="cqad6 cldjl">
+<div class="cd2pc c4sqe cyg2g cm613 cksrg">
+<!-- Logo -->
+<a class="c04hf cqad6 c5sr6" href="index.html" aria-label="Cruip">
+<img src="./images/logo.svg" width="32" height="32" alt="Docs">
+</a>
+<div class="c6hvh c61tc cdaz4">Copyright © Cruip<span class="cdcnn cqfqg">. All rights reserved.</span></div>
+</div>
+</div>
+<!-- Social links -->
+<ul class="c04hf c3y8o">
+<li>
+<a class="c4qeo cgm8l c3yvh cd2pc cf4um c8n89 c1m7j cksrg" href="#0" aria-label="Twitter">
+<svg class="chvft c0zj9 c0a4p" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z"></path>
+</svg>
+</a>
+</li>
+<li>
+<a class="c4qeo cgm8l c3yvh cd2pc cf4um c8n89 c1m7j cksrg" href="#0" aria-label="Github">
+<svg class="chvft c0zj9 c0a4p" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 8.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V22c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z"></path>
+</svg>
+</a>
+</li>
+<li>
+<a class="c4qeo cgm8l c3yvh cd2pc cf4um c8n89 c1m7j cksrg" href="#0" aria-label="Telegram">
+<svg class="chvft c0zj9 c0a4p" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22.968 10.276a.338.338 0 0 0-.232-.253 1.192 1.192 0 0 0-.63.045s-14.019 5.038-14.82 5.596c-.172.121-.23.19-.259.272-.138.4.293.573.293.573l3.613 1.177a.388.388 0 0 0 .183-.011c.822-.519 8.27-5.222 8.7-5.38.068-.02.118 0 .1.049-.172.6-6.606 6.319-6.64 6.354a.138.138 0 0 0-.05.118l-.337 3.528s-.142 1.1.956 0a30.66 30.66 0 0 1 1.9-1.738c1.242.858 2.58 1.806 3.156 2.3a1 1 0 0 0 .732.283.825.825 0 0 0 .7-.622s2.561-10.275 2.646-11.658c.008-.135.021-.217.021-.317a1.177 1.177 0 0 0-.032-.316Z"></path>
+</svg>
+</a>
+</li>
+</ul>
+</div>
+</footer>                                       
+
+</div>
+
+<!-- Secondary navigation -->
+<nav class="ciwds cyg2g cb4ta cmfv9">
+<div class="cdn1j cm8ed c9lju chsoc cgs8z cgjfp cmfv9 cvt4c">
+<div class="cvlul cuc78 cy1q3">
+<div class="czg3k cqusc ci20y clvqt cy91i ckxhs cuhac">On this page</div>
+<ul class="c61tc">
+<li>
+<!-- The data-scrollspy-link attribute makes the scrollspy work -->
+<a data-scrollspy-link="" class="c7t8u c3x91 ckunh c95i9 c7mr8 cak8f cyrdu c8f9i cy91i cifcz cuhac" href="#basics">The basics</a>
+</li>
+<li>
+<!-- The data-scrollspy-link attribute makes the scrollspy work -->
+<a data-scrollspy-link="" class="c7t8u c3x91 ckunh c95i9 c7mr8 cak8f cyrdu c8f9i cy91i cifcz cuhac" href="#api-structure">API structure</a>
+</li>
+<li>
+<!-- The data-scrollspy-link attribute makes the scrollspy work -->
+<a data-scrollspy-link="" class="c7t8u c3x91 ckunh c95i9 c7mr8 cak8f cyrdu c8f9i cy91i cifcz cuhac" href="#connect-api">Connecting to the API</a>
+</li>
+<li>
+<!-- The data-scrollspy-link attribute makes the scrollspy work -->
+<a data-scrollspy-link="" class="c7t8u c3x91 ckunh c95i9 c7mr8 cak8f cyrdu c8f9i cy91i cifcz cuhac" href="#api-limits">API limits</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+</article>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>

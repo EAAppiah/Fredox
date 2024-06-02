@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <Sidebar />
+    <Sidebar class="hidden lg:flex" />
     <slot />
   </div>
 </template>
