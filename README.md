@@ -1,5 +1,5 @@
 # Fredox
-
+[![My Skills](https://skills.thijs.gg/icons?i=nuxt,tailwind)](https://skills.thijs.gg)
 Fredox is a modern and visually appealing template built with Nuxt.js 3 and Tailwind CSS. It offers a vivid and readable design, ensuring an optimal reading experience for users while seamlessly navigating through pages. Furthermore, Fredox is mobile-friendly, allowing users to access and interact with the content effortlessly on various devices.
 
 ## Features
@@ -17,7 +17,7 @@ Fredox is a modern and visually appealing template built with Nuxt.js 3 and Tail
 - **Easy Navigation**: With intuitive navigation and clear content structure, users can effortlessly explore and navigate through the pages, improving overall usability.
 
 ## Inspiration
-Fredox was inspired by (https://preview.cruip.com/docs/#0) (https://dev.to/github/10-standout-github-profile-readmes-h2o) and other creative profiles on GitHub.
+Fredox was inspired by (https://preview.cruip.com/docs/#0) and other creative profiles on GitHub.
 
 ## Installation
 
