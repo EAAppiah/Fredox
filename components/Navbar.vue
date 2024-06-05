@@ -25,6 +25,7 @@
 
 <script setup>
 const darkMode = ref(false);
+const osTheme = ref('light');
 
 const IconName = computed(() => {
 
@@ -36,11 +37,31 @@ const toggleDarkMode = () => {
   updateHTMLElementClass();
 }
 
-const updateHTMLElementClass = () => {
-  const htmlElement = document.documentElement;
-  darkMode.value
-    ? htmlElement.classList.add('dark')
-    : htmlElement.classList.remove('dark');
+const getOSTheme = () => {
+  if (windows.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  return 'light';
 };
 
+const updateHTMLElementClass = () => {
+  const htmlElement = document.documentElement;
+  if (osTheme.value === 'dark' || darkMode.value) {
+    htmlElement.classList.add('dark');
+  } else {
+    htmlElement.classList.remove('dark');
+  }
+};
+
+onMounted(() => {
+  osTheme.value = getOSTheme();
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    osTheme.value = getOSTheme();
+    updateHTMLElementClass();
+  });
+});
+
+watch([osTheme, darkMode], () => {
+  updateHTMLElementClass();
+})
 </script>
