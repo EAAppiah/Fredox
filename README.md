@@ -1,6 +1,6 @@
 # Fredox ✨
 
-[![Nuxt.js](https://img.shields.io/badge/Nuxt.js-3-brightgreen)](https://nuxtjs.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-2.2.16-blue)](https://tailwindcss.com/)
+[![Nuxt.js](https://img.shields.io/badge/Nuxt.js-3-brightgreen)](https://nuxtjs.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.3-blue)](https://tailwindcss.com/)
 
 Fredox is a modern and visually appealing template built with Nuxt.js 3 and Tailwind CSS. It offers a vivid and readable design, ensuring an optimal reading experience for users while seamlessly navigating through pages. Furthermore, Fredox is mobile-friendly, allowing users to access and interact with the content effortlessly on various devices.
 
