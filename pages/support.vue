@@ -1,511 +1,500 @@
 <template>
   <!-- Page content -->
-  <main class="dark:bg-neutral-900 overflow-hidden px-4 ml-0 md:ml-[350px] xl:ml-[500px]">
-    <div class="w-full lg:w-[70%] max-w-7xl flex flex-col mt-2">
-      <div class="text-left -z-50">
+  <main class="dark:bg-slate-900 overflow-hidden px-4 ml-0 md:ml-[315px] xl:ml-[500px]">
+    <div class="max-w-3xl w-full lg:w-[95%] flex flex-col mt-2 px-0 lg:px-8">
 
+      <div>
+        <img class="absolute inset-0 -z-50" src="../assets/images/Illustrator.svg" alt="Hero Image" width=1972
+          height=392 />
+      </div>
+
+      <!-- Page header -->
+      <div class="flex items-center gap-x-4 my-5">
+        <img src="/assets/images/support_page.svg" alt="Documentation Logo" />
+        <span class="text-xl font-sans italic text-blue-500 tracking-wide">
+          Help / Support
+        </span>
+      </div>
+
+      <article>
+        <!-- Main area -->
         <div>
-          <img class="absolute inset-0 -z-50" src="../assets/images/Illustrator.svg" alt="Hero Image" width=1972
-            height=392 />
-        </div>
+          <!-- Mobile hamburger + breadcrumbs -->
+          <div class="flex md:hidden items-center gap-x-4 mt-6">
 
-        <!-- Page header -->
-        <div class="flex items-center gap-x-4 my-5">
-          <img src="/assets/images/documentation_page.svg" alt="Documentation Logo" />
-          <span class="text-xl font-sans italic text-blue-500 tracking-wide">
-            Help / Support
-          </span>
-        </div>
-
-        <article class="cfxuc cksrg">
-
-          <!-- Main area -->
-          <div>
-            <!-- Mobile hamburger + breadcrumbs -->
-            <div class="flex md:hidden items-center gap-x-4 mt-6">
-              <!-- Hamburger button -->
-              <div>
-                <Icon
-                  name="streamline:interface-setting-menu-1-button-parallel-horizontal-lines-menu-navigation-three-hamburger" />
-              </div>
-              <!-- Breadcrumbs -->
-              <div>
-                <span class="text-primaryDark font-extra-light">Help / Support</span>
-              </div>
+            <!-- Mobile Sidebar Overlay -->
+            <div v-if="isSidebarOpen" class="fixed inset-0 bg-gray-500 bg-opacity-50 z-50 md:hidden">
+              <!-- Mobile Sidebar -->
+              <nav :class="{ '-translate-x-full': !isSidebarOpen }"
+                class="fixed md:hidden py-2 px-4 bg-slate-50 dark:bg-slate-900 transition-transform duration-300 ease-in-out z-50 h-screen w-[280px] left-0 border-r overflow-y-auto dark:border-slate-700">
+                <div class="flex justify-end">
+                  <button @click="closeSidebar"
+                    class="p-2 text-gray-500 hover:text-gray-700 dark:text-slate-400 dark:hover:text-white">
+                    <Icon name="mdi:close" class="w-6 h-6" />
+                  </button>
+                </div>
+                <div>
+                  <ul class="mt-6 font-semibold text-neutral-600 text-base dark-text-white">
+                    <li :class="{ 'active-parent': isParentActive('/') }">
+                      <div class="flex items-center gap-x-2" @click="toggleDocumentation">
+                        <img src="/assets/images/Documentation.svg" alt="Documentation icon" />
+                        <span class="cursor-pointer dark:text-white">Documentation</span>
+                        <Icon :name="showDocs ? 'ic:baseline-keyboard-arrow-down' : 'ic:baseline-keyboard-arrow-right'"
+                          class="text-gray-500" />
+                      </div>
+                      <ul
+                        class="ml-3.5 mt-2 text-base border-l-2 pl-5 border-neutral-300 duration-500 ease-in-out dark:text-white dark:border-slate-700"
+                        v-show="showDocs">
+                        <li class="mt-4">
+                          <nuxt-link to="/" exact-active-class="text-blue-500">Fundamentals</nuxt-link>
+                        </li>
+                        <li class="mt-2">
+                          <nuxt-link to="#">Methods and Parameters</nuxt-link>
+                        </li>
+                        <li class="mt-2">
+                          <nuxt-link to="#">Merge Fields</nuxt-link>
+                          <ul class="mt-2 ml-2">
+                            <li class="mt-2 cursor-pointer">
+                              <span @click="toggleAltScheme" class="flex items-center">
+                                <Icon
+                                  :name="showAltScheme ? 'ic:baseline-keyboard-arrow-down' : 'ic:baseline-keyboard-arrow-right'"
+                                  class="mr-2 text-gray-500" />
+                                Alternative Scheme
+                              </span>
+                              <ul v-show="showAltScheme" class="ml-6 mt-2 font-normal text-sm">
+                                <li class="mt-2"><nuxt-link to="#">File System</nuxt-link></li>
+                                <li class="mt-2"><nuxt-link to="#">Describing Responses</nuxt-link></li>
+                              </ul>
+                            </li>
+                            <li class="mt-2 cursor-pointer">
+                              <span @click="toggleE_commerce" class="flex items-center">
+                                <Icon
+                                  :name="showEcomm ? 'ic:baseline-keyboard-arrow-down' : 'ic:baseline-keyboard-arrow-right'"
+                                  class="mr-2 text-gray-500" />
+                                E-commerce
+                              </span>
+                              <ul v-show="showEcomm" class="ml-6 mt-2 font-normal text-sm">
+                                <li class="mt-2"><nuxt-link to="#">Path Parameters</nuxt-link></li>
+                                <li class="mt-2"><nuxt-link to="#">Query String Parameters</nuxt-link></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <!-- More Documentation sub-items... -->
+                      </ul>
+                    </li>
+                    <li :class="{ 'active-parent': isParentActive('/guides') }" class="mt-3">
+                      <div class="flex items-center gap-x-3" @click="toggleGuides">
+                        <img src="/assets/images/Guides.svg" alt="Guides icon" />
+                        <span class="cursor-pointer dark:text-white">Guides/Tutorials</span>
+                        <Icon
+                          :name="showGuides ? 'ic:baseline-keyboard-arrow-down' : 'ic:baseline-keyboard-arrow-right'"
+                          class="text-gray-500" />
+                      </div>
+                      <ul v-show="showGuides"
+                        class="ml-3.5 mt-2 text-base border-l-2 border-neutral-300 pl-5 duration-500 ease-in-out dark:border-slate-700 dark:text-white">
+                        <li class="mt-4">
+                          <nuxt-link to="/guides" exact-active-class="text-blue-500">Marketing API Quick
+                            Start</nuxt-link>
+                        </li>
+                        <!-- More Guides sub-items... -->
+                      </ul>
+                    </li>
+                    <li :class="{ 'active-parent': isParentActive('/support') }" class="mt-3">
+                      <div class="flex items-center gap-x-3 dark:text-white">
+                        <img src="/assets/images/Documentation.svg" alt="Support icon" />
+                        <nuxt-link to="/support">Help/Support</nuxt-link>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             </div>
-
-            <!-- Article content -->
+            <!-- Hamburger button -->
             <div>
-              <header class="mt-10">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primaryDark tracking-wide">How can we help?</h1>
-                <p class="text-lg text-secondaryDark">Everything you need to know right here at your fingertips. Ask
-                  questions, browse
-                  around for answers, or submit your feature requests.</p>
-              </header>
-              <div>
-
-                <!-- Faqs section -->
-                <div class="c92zf coouc ckzml">
-
-                  <section class="crgt4">
-                    <!-- HTML Bookmark -->
-                    <!-- The data-scrollspy-target attribute makes the scrollspy work -->
-                    <h2 id="overview" data-scrollspy-target=""
-                      class="text-2xl md:text-4xl font-bold my-5 text-primaryDark tracking-wide">Overview</h2>
-                    <ul class="cpxfi">
-                      <li x-data="{ expanded: true }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Does Docs support other data sources, like Excel or Airtable?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Can I collaborate on campaigns with others?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Will you help me build my campaign?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>How can I become a partner?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </section>
-
-                  <section class="crgt4">
-                    <!-- HTML Bookmark -->
-                    <!-- The data-scrollspy-target attribute makes the scrollspy work -->
-                    <h2 id="support" data-scrollspy-target="" class="czg3k cdujf cxq5p cg131">Support</h2>
-                    <ul class="cpxfi">
-                      <li x-data="{ expanded: true }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>How can I talk to someone at Docs?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Why should I connect my clients?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Can I collaborate on campaigns with others?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Is Glide Docs and CCPA compliant?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </section>
-
-                  <section class="crgt4">
-                    <!-- HTML Bookmark -->
-                    <!-- The data-scrollspy-target attribute makes the scrollspy work -->
-                    <h2 id="security" data-scrollspy-target="" class="czg3k cdujf cxq5p cg131">Security &amp;
-                      Privacy</h2>
-                    <ul class="cpxfi">
-                      <li x-data="{ expanded: true }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>What are Private Users of Private Pro campaigns?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Does Docs sell or share the content of my campaigns with third parties?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>What access does Docs have to my campaigns?</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </section>
-
-                  <section class="crgt4">
-                    <!-- HTML Bookmark -->
-                    <!-- The data-scrollspy-target attribute makes the scrollspy work -->
-                    <h2 id="troubleshooting" data-scrollspy-target="" class="czg3k cdujf cxq5p cg131">
-                      Troubleshooting</h2>
-                    <ul class="cpxfi">
-                      <li x-data="{ expanded: true }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>An error occurred deleting my campaign</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Something went wrong adding the webhook</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Something went wrong updating your payment information</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Something went wrong trying to delete that user's data</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                      <li x-data="{ expanded: false }">
-                        <button class="czg3k cdujf cd2pc cbj28 co992 ctpgh cksrg" @click="expanded = !expanded"
-                          :aria-expanded="expanded">
-                          <div class="cyg2g cfzzb">
-                            <svg class="cnug6 cx9vk" :class="{ 'clbvd': expanded }" xmlns="http://www.w3.org/2000/svg"
-                              width="8" height="12">
-                              <path d="m4.586 6-4-4L2 .586 7.414 6 2 11.414.586 10z"></path>
-                            </svg>
-                          </div>
-                          <span>Something went wrong replacing the campaign</span>
-                        </button>
-                        <div :class="{ 'cb4ta': !expanded }" x-cloak="">
-                          <div class="csgq2 ccjb9">
-                            <p>
-                              There are many variations of passages available, but the majority have suffered
-                              alteration in some form, by injected humour, or randomised words which don't look.
-                              If you are going to use a passage of Lorem Ipsum.
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </section>
-
-                </div>
-
-              </div>
+              <Icon
+                name="streamline:interface-setting-menu-1-button-parallel-horizontal-lines-menu-navigation-three-hamburger"
+                class="text-primaryDark dark:text-slate-400 cursor-pointer" @click="toggleSidebar" />
             </div>
-
-            <!-- Content footer -->
-            <footer class="cvlul cuc78 ctjfq cbd4t">
-              <div class="czube cgm8l cd2pc c4sqe cm613 cksrg">
-                <div class="cqad6 cldjl">
-                  <div class="cd2pc c4sqe cyg2g cm613 cksrg">
-                    <!-- Logo -->
-                    <a class="c04hf cqad6 c5sr6" href="index.html" aria-label="Cruip">
-                      <img src="./images/logo.svg" width="32" height="32" alt="Docs">
-                    </a>
-                    <div class="c6hvh c61tc cdaz4">Copyright © Cruip<span class="cdcnn cqfqg">. All rights
-                        reserved.</span></div>
-                  </div>
-                </div>
-                <!-- Social links -->
-                <ul class="c04hf c3y8o">
-                  <li>
-                    <a class="c4qeo cgm8l c3yvh cd2pc cf4um c8n89 c1m7j cksrg" href="#0" aria-label="Twitter">
-                      <svg class="chvft c0zj9 c0a4p" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z">
-                        </path>
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="c4qeo cgm8l c3yvh cd2pc cf4um c8n89 c1m7j cksrg" href="#0" aria-label="Github">
-                      <svg class="chvft c0zj9 c0a4p" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M16 8.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V22c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z">
-                        </path>
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="c4qeo cgm8l c3yvh cd2pc cf4um c8n89 c1m7j cksrg" href="#0" aria-label="Telegram">
-                      <svg class="chvft c0zj9 c0a4p" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M22.968 10.276a.338.338 0 0 0-.232-.253 1.192 1.192 0 0 0-.63.045s-14.019 5.038-14.82 5.596c-.172.121-.23.19-.259.272-.138.4.293.573.293.573l3.613 1.177a.388.388 0 0 0 .183-.011c.822-.519 8.27-5.222 8.7-5.38.068-.02.118 0 .1.049-.172.6-6.606 6.319-6.64 6.354a.138.138 0 0 0-.05.118l-.337 3.528s-.142 1.1.956 0a30.66 30.66 0 0 1 1.9-1.738c1.242.858 2.58 1.806 3.156 2.3a1 1 0 0 0 .732.283.825.825 0 0 0 .7-.622s2.561-10.275 2.646-11.658c.008-.135.021-.217.021-.317a1.177 1.177 0 0 0-.032-.316Z">
-                        </path>
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </footer>
-
+            <!-- Breadcrumbs -->
+            <div>
+              <span class="text-secondaryDark font-extra-light dark:text-slate-400">Help / Support</span>
+            </div>
           </div>
 
-          <!-- Secondary navigation -->
-          <nav class="ciwds cyg2g cb4ta cmfv9">
-            <div class="cdn1j cm8ed c9lju chsoc cgs8z cgjfp cmfv9 cvt4c">
-              <div class="cvlul cuc78 cy1q3">
-                <div class="czg3k cqusc ci20y clvqt cy91i ckxhs cuhac">On this page</div>
-                <ul class="c61tc">
-                  <li>
-                    <!-- The data-scrollspy-link attribute makes the scrollspy work -->
-                    <a data-scrollspy-link="" class="c7t8u c3x91 ckunh c7mr8 cak8f c8f9i cy91i cifcz cuhac"
-                      href="#overview">Overview</a>
-                  </li>
-                  <li>
-                    <!-- The data-scrollspy-link attribute makes the scrollspy work -->
-                    <a data-scrollspy-link="" class="c7t8u c3x91 ckunh c7mr8 cak8f c8f9i cy91i cifcz cuhac"
-                      href="#support">Support</a>
-                  </li>
-                  <li>
-                    <!-- The data-scrollspy-link attribute makes the scrollspy work -->
-                    <a data-scrollspy-link="" class="c7t8u c3x91 ckunh c7mr8 cak8f c8f9i cy91i cifcz cuhac"
-                      href="#security">Security &amp; Privacy</a>
-                  </li>
-                  <li>
-                    <!-- The data-scrollspy-link attribute makes the scrollspy work -->
-                    <a data-scrollspy-link="" class="c7t8u c3x91 ckunh c7mr8 cak8f c8f9i cy91i cifcz cuhac"
-                      href="#troubleshooting">Troubleshooting</a>
-                  </li>
-                </ul>
+          <!-- Article content -->
+          <div>
+            <header class="mt-5">
+              <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primaryDark tracking-wide dark:text-white">How can we
+                help?</h1>
+              <p class="text-lg text-secondaryDark dark:text-slate-400">Everything you need to know right here at your
+                fingertips. Ask
+                questions, browse
+                around for answers, or submit your feature requests.</p>
+            </header>
+
+            <div>
+
+              <!-- Faqs section -->
+              <div class="">
+                <!-- OVERVIEW -->
+                <section class="mb-5">
+                  <h3 id="overview"
+                    class="text-lg md:text-2xl font-bold my-5 text-primaryDark tracking-wide dark:text-white">
+                    Overview
+                  </h3>
+                  <ul v-if="items.length" class="mt-2 rounded-md">
+                    <li v-for="(item, index) in items" :key="index" class="pl-0">
+                      <button
+                        class="w-full flex justify-between items-start py-1.5 text-left transition-colors duration-200"
+                        @click="toggleOverviewItem(index)">
+                        <div class="flex items-center space-x-2">
+                          <Icon :class="{ 'transform rotate-90': item.isOpen }" name="ic:baseline-keyboard-arrow-right"
+                            class="text-primaryDark transition-transform duration-200 dark:text-slate-400" />
+                          <span class="text-base md:text-lg font-semibold text-primaryDark dark:text-slate-200">{{
+                            item.title }}</span>
+                        </div>
+                      </button>
+                      <div v-show="item.isOpen" class="pb-4 px-6">
+                        <p class="text-base text-secondaryDark dark:text-slate-400">
+                          {{ item.content }}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <div v-else class="text-center py-8">Loading...</div>
+                </section>
+
+                <!-- SUPPORT -->
+                <section class="my-5">
+                  <h3 id="support"
+                    class="text-lg md:text-2xl font-bold my-5 text-primaryDark tracking-wide dark:text-white">
+                    Support
+                  </h3>
+                  <ul v-if="supports.length" class="mt-2 rounded-md">
+                    <li v-for="(support, index) in supports" :key="index" class="pl-0">
+                      <button
+                        class="w-full flex justify-between items-center py-1.5 text-left transition-colors duration-200"
+                        @click="toggleSupportItem(index)">
+                        <div class="flex items-center space-x-2">
+                          <Icon :class="{ 'transform rotate-90': support.isOpen }"
+                            name="ic:baseline-keyboard-arrow-right"
+                            class="text-primaryDark transition-transform duration-200 dark:text-slate-400" />
+                          <span class="text-base md:text-lg font-semibold text-primaryDark dark:text-slate-200">{{
+                            support.title }}</span>
+                        </div>
+                      </button>
+                      <div v-show="support.isOpen" class="px-6 pb-4">
+                        <p class="text-base text-secondaryDark dark:text-slate-400">
+                          {{ support.content }}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <div v-else class="text-center py-8">Loading...</div>
+                </section>
+
+                <!-- SERVICE & PRIVACY -->
+                <section class="my-5">
+                  <h3 id="security"
+                    class="text-lg md:text-2xl font-bold my-5 text-primaryDark tracking-wide dark:text-white">
+                    Security & Privacy
+                  </h3>
+                  <ul v-if="securities.length" class="mt-2 rounded-md">
+                    <li v-for="(security, index) in securities" :key="index" class="pl-0">
+                      <button
+                        class="w-full flex justify-between items-center py-1.5 text-left transition-colors duration-200"
+                        @click="toggleSecurityItem(index)">
+                        <div class="flex items-center space-x-2">
+                          <Icon :class="{ 'transform rotate-90': security.isOpen }"
+                            name="ic:baseline-keyboard-arrow-right"
+                            class="text-primaryDark transition-transform duration-200 dark:text-slate-400" />
+                          <span class="text-base md:text-lg font-semibold text-primaryDark dark:text-slate-200">{{
+                            security.title }}</span>
+                        </div>
+                      </button>
+                      <div v-show="security.isOpen" class="px-4 pb-4">
+                        <p class="text-base text-secondaryDark dark:text-slate-400">
+                          {{ security.content }}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <div v-else class="text-center py-8">Loading...</div>
+                </section>
+
+                <!-- TROUBLESHOOTING -->
+                <section class="my-5">
+                  <h3 id="troubleshooting"
+                    class="text-lg md:text-2xl font-bold my-5 text-primaryDark tracking-wide dark:text-white">
+                    Troubleshooting
+                  </h3>
+                  <ul v-if="troubleshootings.length" class="mt-2 rounded-md">
+                    <li v-for="(troubleshooting, index) in troubleshootings" :key="index" class="pl-0">
+                      <button
+                        class="w-full flex justify-between items-center py-1.5 text-left transition-colors duration-200"
+                        @click="toggleTroubleshootingItem(index)">
+                        <div class="flex items-center space-x-2">
+                          <Icon :class="{ 'transform rotate-90': troubleshooting.isOpen }"
+                            name="ic:baseline-keyboard-arrow-right"
+                            class="text-primaryDark transition-transform duration-200 dark:text-slate-400" />
+                          <span class="text-base md:text-lg font-semibold text-primaryDark dark:text-slate-200">{{
+                            troubleshooting.title
+                          }}</span>
+                        </div>
+                      </button>
+                      <div v-show="troubleshooting.isOpen" class="px-6 pb-4">
+                        <p class="text-base text-secondaryDark dark:text-slate-400">
+                          {{ troubleshooting.content }}
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <div v-else class="text-center py-8">Loading...</div>
+                </section>
               </div>
+
             </div>
-          </nav>
+          </div>
 
-        </article>
+          <!-- Content footer -->
+          <footer class="my-10">
+            <div
+              class="flex flex-col items-center md:flex-row md:items-center md:justify-between border-t border-gray-300 pt-5 dark:border-slate-700">
+              <div class="md:mr-4">
+                <div class="flex flex-col items-center md:flex-row">
+                  <!-- Logo -->
+                  <nuxt-link to="/" aria-label="Fredox">
+                    <img src="/assets/images/Capacitor.svg" width="32" height="32" class="dark:invert"
+                      alt="Fredox Logo">
+                  </nuxt-link>
+                  <div class="text-secondaryDark my-2 md:ml-4 dark:text-slate-400">Copyright © Cruip<span>. All rights
+                      reserved.</span></div>
+                </div>
+              </div>
+              <!-- Social links -->
+              <ul class="flex items-center justify-center space-x-6 mt-4 md:mt-0">
+                <li>
+                  <a class="text-blue-700" href="#" aria-label="Twitter">
+                    <Icon name="fa6-brands:x-twitter" class="text-xl cursor-pointer" />
+                  </a>
+                </li>
+                <li>
+                  <a class="text-blue-700" href="#" aria-label="Github">
+                    <Icon name="bi:github" class="text-xl" />
+                  </a>
+                </li>
+                <li>
+                  <a class="text-blue-700" href="#" aria-label="Telegram">
+                    <Icon name="file-icons:telegram" class="text-xl" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </footer>
+        </div>
 
-      </div>
+        <!-- Secondary navigation -->
+        <nav
+          class="hidden lg:block fixed top-1/2 right-6 transform -translate-y-1/2 w-64 rounded-lg p-6 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div class="relative">
+            <!-- Slim scrollbar on the left side -->
+            <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+            <div class="absolute left-0 top-0 w-0.5 h-5 bg-blue-500 rounded-full transition-all duration-300"
+              id="scrollIndicator"></div>
+
+            <div class="pl-4">
+              <div class="text-sm font-bold text-gray-400 dark:text-white mb-4 uppercase">On this page</div>
+              <ul class="space-y-3">
+                <li>
+                  <a href="#overview" :class="{ 'text-blue-600': isLinkActive('overview') }"
+                    @click.prevent="scrollToSection('overview')"
+                    class="block text-primaryDark text-sm hover:text-blue-600 transition-colors dark:text-slate-400">Overview</a>
+                </li>
+                <li>
+                  <a href="#support" :class="{ 'text-blue-600': isLinkActive('support') }"
+                    @click.prevent="scrollToSection('support')"
+                    class="block text-primaryDark text-sm hover:text-blue-600 transition-colors dark:text-slate-400">Support</a>
+                </li>
+                <li>
+                  <a href="#security" :class="{ 'text-blue-600': isLinkActive('security') }"
+                    @click.prevent="scrollToSection('security')"
+                    class="block text-primaryDark text-sm hover:text-blue-600 transition-colors dark:text-slate-400">Security
+                    &amp;
+                    Privacy</a>
+                </li>
+                <li>
+                  <a href="#troubleshooting" :class="{ 'text-blue-600': isLinkActive('troubleshooting') }"
+                    @click.prevent="scrollToSection('troubleshooting')"
+                    class="block text-primaryDark text-sm hover:text-blue-600 transition-colors dark:text-slate-400">Troubleshooting</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </article>
+
     </div>
 
   </main>
 </template>
+
+<script setup>
+import { useRoute } from 'vue-router'
+import { useScrollTracker } from '@/composable/useScrollTracker';
+
+// SMOOTH SCROLL & TRACKER
+const { activeSection, isLinkActive, scrollToSection } = useScrollTracker();
+
+const route = useRoute();
+
+// SIDEBAR TOGGLERS
+const isSidebarOpen = ref(false)
+const toggleSidebar = () => (isSidebarOpen.value = !isSidebarOpen.value)
+const closeSidebar = () => (isSidebarOpen.value = false)
+
+// ACTIVE LISTS LINK
+const isParentActive = (path) => route.fullPath === path || route.fullPath.startsWith(`${path}/`)
+
+const showDocs = ref(false);
+const showGuides = ref(false);
+const showAltScheme = ref(false);
+const showEcomm = ref(false);
+
+const toggleDocumentation = () => {
+  showDocs.value = !showDocs.value;
+};
+
+const toggleGuides = () => {
+  showGuides.value = !showGuides.value;
+};
+
+const toggleAltScheme = () => {
+  showAltScheme.value = !showAltScheme.value;
+};
+
+const toggleE_commerce = () => {
+  showEcomm.value = !showEcomm.value;
+};
+
+// LIST TOGGLE
+const toggleItem = (list, index) => {
+  if (list && list.value && list.value[index]) {
+    list.value[index].isOpen = !list.value[index].isOpen;
+  }
+};
+
+const toggleOverviewItem = (index) => toggleItem(items, index);
+const toggleSupportItem = (index) => toggleItem(supports, index);
+const toggleSecurityItem = (index) => toggleItem(securities, index);
+const toggleTroubleshootingItem = (index) => toggleItem(troubleshootings, index);
+
+
+const items = ref([
+  {
+    title: 'Does Docs support other data sources, like Excel or Airtable?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Can I collaborate on campaigns with others?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Will you help me build my campaign?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'How can I become a partner?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+]);
+
+const supports = ref([
+  {
+    title: 'How can I talk to someone at Docs?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Why should I connect my clients?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Can I collaborate on campaigns with others?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Is Glide Docs and CCPA compliant?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  }
+]);
+
+const securities = ref([
+  {
+    title: 'What are Private Users of Private Pro campaigns?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Does Docs sell or share the content of my campaigns with third parties?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'What access does Docs have to my campaigns?',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  }
+]);
+
+const troubleshootings = ref([
+  {
+    title: 'An error occurred deleting my campaign',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Something went wrong adding the webhook',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Something went wrong updating your payment information',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: "Something went wrong trying to delete that user's data",
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  },
+  {
+    title: 'Something went wrong replacing the campaign',
+    content: 'There are many variations of passages available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look. If you are going to use a passage of Lorem Ipsum.',
+    isOpen: false,
+  }
+]);
+
+</script>
+
+
+<style scoped>
+section h3 {
+  scroll-margin-top: 100px;
+  /* Adjust this value to match your navbar's height plus any extra space you want */
+}
+
+.active-parent>div {
+  background: linear-gradient(to left, lightpink, lightblue);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+</style>
