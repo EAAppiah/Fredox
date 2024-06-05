@@ -1,6 +1,6 @@
 <template>
   <!-- Page container -->
-  <main class="dark:bg-slate-900 overflow-hidden px-4 ml-0 md:ml-[315px] xl:ml-[500px]">
+  <main class="dark:bg-slate-900 overflow-hidden px-4 ml-0 md:ml-[315px] xl:ml-[475px]">
     <div class="max-w-3xl w-full lg:w-[95%] flex flex-col mt-2 px-0 lg:px-8">
       <div>
         <img class="absolute inset-0 -z-50" src="../assets/images/Illustrator.svg" alt="Hero Image" width=2000
