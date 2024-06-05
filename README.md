@@ -1,17 +1,13 @@
 # Fredox
+[![Nuxt.js](https://img.shields.io/badge/Nuxt.js-3-brightgreen)](https://nuxtjs.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-2.2.16-blue)](https://tailwindcss.com/)
 
 Fredox is a modern and visually appealing template built with Nuxt.js 3 and Tailwind CSS. It offers a vivid and readable design, ensuring an optimal reading experience for users while seamlessly navigating through pages. Furthermore, Fredox is mobile-friendly, allowing users to access and interact with the content effortlessly on various devices.
 
 ## Features
-<div align="center">
-	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind CSS" title="Tailwind CSS"/></code>
-	<code><img width="50" src="https://github.com/marwin1991/profile-technology-icons/assets/136815194/ebd92b15-970a-45b8-8c4c-0ecf69b17cdc" alt="Nuxt.js" title="Nuxt.js"/></code>
-</div>
-- **Clean and Responsive Design**: Fredox boasts a clean and modern design that adapts seamlessly to different screen sizes, providing an optimal viewing experience across desktops, tablets, and mobile devices.
 
-- **Nuxt.js 3**: Leveraging the power of Nuxt.js 3, a progressive Vue.js framework, Fredox ensures efficient rendering, code-splitting, and overall performance optimization.
+- **Nuxt.js 3** <code><img width="50" src="https://github.com/marwin1991/profile-technology-icons/assets/136815194/ebd92b15-970a-45b8-8c4c-0ecf69b17cdc" alt="Nuxt.js" title="Nuxt.js"/></code>: Leveraging the power of Nuxt.js 3, a progressive Vue.js framework, Fredox ensures efficient rendering, code-splitting, and overall performance optimization.
 
-- **Tailwind CSS**: Fredox utilizes Tailwind CSS, a utility-first CSS framework, enabling rapid UI development and easy customization of styles.
+- **Tailwind CSS** <code><img width="50" src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind CSS" title="Tailwind CSS"/></code>: Fredox utilizes Tailwind CSS, a utility-first CSS framework, enabling rapid UI development and easy customization of styles.
 
 - **Mobile-Friendly**: The template is designed with a mobile-first approach, ensuring that the content and user interface are optimized for smaller screens, providing a seamless browsing experience on-the-go.
 
