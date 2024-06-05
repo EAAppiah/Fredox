@@ -2,5 +2,17 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 
-	modules: ["@nuxtjs/tailwindcss", 'nuxt-icon'],
+	app: {
+		head: {
+			link: [
+				{
+					rel: "icon",
+					type: "image/x-icon",
+					href: "/favicon.ico", // Adjust the path if needed
+				},
+			],
+		},
+	},
+
+	modules: ["@nuxtjs/tailwindcss", "nuxt-icon"],
 });
