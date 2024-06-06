@@ -11,12 +11,11 @@
       </div>
       <div class="flex justify-end items-center gap-x-4">
         <button type="button"
-          class="text-white font-bold bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-full text-sm px-4 py-2.5 md:py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          class="text-white font-bold ml-2 bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-full text-sm px-4 py-2.5 md:py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
           Support
         </button>
         <div>
-          <Icon :name="IconName" size=1.5em class="text-blue-500 cursor-pointer" aria-label="Toggle dark mode"
-            @click="toggleDarkMode" />
+          <ModeSwitch />
         </div>
       </div>
     </div>
@@ -24,44 +23,44 @@
 </template>
 
 <script setup>
-const darkMode = ref(false);
-const osTheme = ref('light');
+// const darkMode = ref(false);
+// const osTheme = ref('light');
 
-const IconName = computed(() => {
+// const IconName = computed(() => {
 
-  return darkMode.value ? 'material-symbols:dark-mode' : 'material-symbols:light-mode';
-})
+//   return darkMode.value ? 'material-symbols:dark-mode' : 'material-symbols:light-mode';
+// })
 
-const toggleDarkMode = () => {
-  darkMode.value = !darkMode.value;
-  updateHTMLElementClass();
-}
+// const toggleDarkMode = () => {
+//   darkMode.value = !darkMode.value;
+//   updateHTMLElementClass();
+// }
 
-const getOSTheme = () => {
-  if (windows.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
-  }
-  return 'light';
-};
+// const getOSTheme = () => {
+//   if (windows.matchMedia('(prefers-color-scheme: dark)').matches) {
+//     return 'dark';
+//   }
+//   return 'light';
+// };
 
-const updateHTMLElementClass = () => {
-  const htmlElement = document.documentElement;
-  if (osTheme.value === 'dark' || darkMode.value) {
-    htmlElement.classList.add('dark');
-  } else {
-    htmlElement.classList.remove('dark');
-  }
-};
+// const updateHTMLElementClass = () => {
+//   const htmlElement = document.documentElement;
+//   if (osTheme.value === 'dark' || darkMode.value) {
+//     htmlElement.classList.add('dark');
+//   } else {
+//     htmlElement.classList.remove('dark');
+//   }
+// };
 
-onMounted(() => {
-  osTheme.value = getOSTheme();
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    osTheme.value = getOSTheme();
-    updateHTMLElementClass();
-  });
-});
+// onMounted(() => {
+//   osTheme.value = getOSTheme();
+//   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+//     osTheme.value = getOSTheme();
+//     updateHTMLElementClass();
+//   });
+// });
 
-watch([osTheme, darkMode], () => {
-  updateHTMLElementClass();
-})
+// watch([osTheme, darkMode], () => {
+//   updateHTMLElementClass();
+// })
 </script>

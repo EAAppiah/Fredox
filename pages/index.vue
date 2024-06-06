@@ -220,7 +220,8 @@
               <div
                 class="my-4 p-4 bg-slate-100 border text-base text-primaryDark rounded-sm dark:border-slate-700 dark:bg-[#1E293B]">
                 <div class="flex justify-center items-center space-x-4 text-primaryDark text-sm">
-                  <svg class="" width="50" height="50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="w-32 md:w-16" width="50" height="50" viewBox="0 0 16 16"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1Zm1-3H7V4h2v5Z"
                       fill="#A855F7">
@@ -322,7 +323,8 @@
                 </p>
                 <div class="my-4 p-4 bg-slate-100 border rounded-sm dark:bg-[#1E293B] dark:border-slate-700">
                   <div class="flex justify-center items-center space-x-4 text-primaryDark text-base">
-                    <svg width="50" height="50" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-32 md:w-16" width="50" height="50" viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8ZM7 11.4 3.6 8 5 6.6l2 2 4-4L12.4 6 7 11.4Z"
                         fill="#14B8A6">
