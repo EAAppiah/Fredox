@@ -1,6 +1,6 @@
 # Fredox ✨
 
-![Fredox Screenshot](https://imgur.com/0ND6QvK "Fredox Homepage")
+[![Fredox Screenshot](https://imgur.com/0ND6QvK.png "Fredox Homepage")](https://fredox.vercel.app/)
 
 [![Nuxt.js](https://img.shields.io/badge/Nuxt.js-3-brightgreen)](https://nuxtjs.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.3-blue)](https://tailwindcss.com/)
 
