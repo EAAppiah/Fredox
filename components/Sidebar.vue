@@ -29,7 +29,8 @@ const isParentActive = (route) => {
 
 <template>
   <nav
-    class="hidden md:flex fixed py-2 px-4 bg-slate-50 dark:bg-slate-900 transition duration-500 z-40 justify-center xl:justify-end min-h-screen w-[315px] xl:w-[475px] left-0 border-r overflow-y-auto dark:border-slate-700">
+    class="hidden md:flex fixed top-10 bottom-0 py-2 px-4 bg-slate-50 dark:bg-slate-900 transition duration-500 z-40 w-[315px] xl:w-[475px] left-0 border-r dark:border-slate-700">
+    <div class="overflow-y-auto h-full w-full">
     <div class="xl:mr-10">
       <ul class="mt-10 font-semibold text-neutral-600 text-base dark-text-white">
         <li :class="{ 'active-parent': isParentActive('/') }">
@@ -123,6 +124,7 @@ const isParentActive = (route) => {
         </li>
       </ul>
     </div>
+  </div>
   </nav>
 </template>
 
