@@ -35,7 +35,7 @@ const isParentActive = (route) => {
         <li :class="{ 'active-parent': isParentActive('/') }">
           <div class="flex items-center gap-x-2" @click="toggleDocumentation">
             <img src="/assets/images/Documentation.svg" alt="Documentation icon" />
-            <span class="cursor-pointer dark:text-white">Documentation</span>
+            <nuxt-link to="/" class="cursor-pointer dark:text-white">Documentation</nuxt-link>
           </div>
           <ul
             class="ml-3.5 mt-2 text-base border-l pl-5 border-neutral-300 duration-500 ease-in-out dark:text-white dark:border-slate-700"
@@ -97,7 +97,7 @@ const isParentActive = (route) => {
         <li :class="{ 'active-parent': isParentActive('/guides') }" class="mt-3">
           <div class="flex items-center gap-x-3" @click="toggleGuides">
             <img src="/assets/images/Guides.svg" alt="Documentation icon" />
-            <span class="cursor-pointer dark:text-white">Guides/Tutorials</span>
+            <nuxt-link to="/guides" class="cursor-pointer dark:text-white">Guides/Tutorials</nuxt-link>
           </div>
           <ul
             class="ml-3.5 mt-2 text-base border-l border-neutral-300 pl-5 duration-500 ease-in-out dark:border-slate-700 dark:text-white"
